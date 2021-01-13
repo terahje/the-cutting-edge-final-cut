@@ -9,6 +9,19 @@ const User = require('./models/user');
 
 const app = express();
 
+const appt = apptIds => {
+    return Appt.find({}).then().catch()
+}
+
+const user = userId => {
+    return User.findById(userId)
+    .then(user => {
+        return {...user._doc, id: user.id}
+    })
+    .catch(err => {
+        throw err;
+    })
+}
 
 app.use('/graphql', graphqlHTTP({
     schema: buildSchema(`
@@ -20,12 +33,14 @@ app.use('/graphql', graphqlHTTP({
         price: Float!
         date: String!
         time: String!
+        creator: User!
     }
     
     type User {
         _id: ID!
         email: String!
         password: String
+        createdAppts: [Appt!]
     }
 
     input ApptInput {
@@ -60,7 +75,11 @@ app.use('/graphql', graphqlHTTP({
            return Appt.find()
             .then(appt => {
                 return appt.map(appointment => {
-                    return {...appointment._doc, _id: appointment.id };
+                    return {
+                        ...appointment._doc, 
+                        _id: appointment.id,
+                        creator: user.bind(this, appointment._doc.creator)
+                    };
                 });
             }
 
