@@ -5,14 +5,33 @@ const PORT = 3001;
 
 const app = express();
 
+const appt = [];
+
 app.use('/graphql', graphqlHTTP({
     schema: buildSchema(`
+    type Appt {
+        _id: ID!
+        title: String!
+        description: String!
+        price: Float!
+        date: String!
+        time: String!
+    }
+    
+    input ApptInput {
+        title: String!
+        description: String!
+        price: Float!
+        date: String!
+        time: String!
+    } 
+
     type RootQuery{
-        appt: [String!]!
+        appt: [Appt!]!
     }
 
     type RootMutation {
-        createAppt(name: String): String
+        createAppt(apptInput: ApptInput): Appt
     }
         schema {
             query: RootQuery
@@ -22,12 +41,19 @@ app.use('/graphql', graphqlHTTP({
     rootValue: {
         appt: () => {
             //appt resolver
-            return ['Hair Cut', 'Permanent']
+            return appt;
         },
-        createApp: (args) => {
-            //create appt resolver
-            const apptName = args.name;
-            return apptName;
+        createAppt: (args) => {
+           const appointment = {
+               _id: Math.random().toString(),
+               title: args.apptInput.title,
+               description: args.apptInput.description,
+               price: +args.apptInput.price,
+               date: args.apptInput.date,
+               time: args.apptInput.time
+           }
+           appt.push(appointment);
+           return appointment;
         }
         
     },
