@@ -13,6 +13,14 @@ module.exports = buildSchema(
         creator: User!
     }
     
+    type Booking {
+        _id: ID!
+       appointment: Appt!
+       user: User!
+       createdAt: String!
+       updatedAt: String!
+
+    }
     type User {
         _id: ID!
         email: String!
@@ -36,11 +44,14 @@ module.exports = buildSchema(
 
     type RootQuery{
         appt: [Appt!]!
+        bookings: [Booking!]!
     }
 
     type RootMutation {
         createAppt(apptInput: ApptInput): Appt
         createUser(userInput: UserInput): User
+        bookAppt(apptId: ID!): Booking!
+        cancelAppt(bookingId: ID!): Appt!
     }
         schema {
             query: RootQuery

@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const Appt = require('../../models/appt');
 const User = require('../../models/user');
-
+const Booking = require('../../models/booking');
 const appt = async apptIds => {
    
    try {
@@ -19,7 +19,19 @@ const appt = async apptIds => {
         throw err;
     }
 };  
-   
+ 
+const singleAppt = async apptId => {
+    try{
+        //get the appointment
+        const appointment = await Appt.findById(apptId);
+        return {...appointment._doc, 
+            _id: appointment.id, 
+            creator:  user.bind(this, appointment.creator)}
+    }
+    catch (err) {
+        throw err;
+    }
+}
 const user = async userId => {
     try {
     const user = await User.findById(userId);
@@ -49,7 +61,25 @@ const user = async userId => {
             throw err;
         }
     },
-
+    bookings: async () => {
+        try{
+           //get all of the bookings from db
+           const bookings = await Booking.find();
+           return bookings.map(booking=> {
+               return {
+                   ...booking._doc,
+                   _id: booking.id,
+                   user: user.bind(this, booking._doc.user),
+                   appointment: singleAppt.bind(this, booking._doc.appointment),
+                   createdAt: new Date(booking._doc.createdAt).toISOString(),
+                   updatedAt: new Date(booking._doc.updatedAt).toISOString()
+               };
+           });
+        }
+        catch (err) {
+            throw err;
+        }
+    },
     //create our appointments
     createAppt: async (args) => {
         const appointment = new Appt({
@@ -102,5 +132,37 @@ const user = async userId => {
         } catch (err) {
             throw err;
         }
-    }   
-}
+    },
+    bookAppt: async args => {
+        //get the appointment to book
+        const retrievedAppt = await Appt.findOne({_id: args.apptId});
+        const booking = new Booking({
+            user: '5fff85e6a2c1af1ea3273646',
+            appointment: retrievedAppt
+        });
+        const result = await booking.save();
+        return {...result._doc,
+           _id: result.id, 
+        user: user.bind(this, booking._doc.user),
+        appointment: singleAppt.bind(this, booking._doc.appointment),
+        createdAt: new Date(result._doc.createdAt).toISOString(),
+        updatedAt: new Date(result._doc.updatedAt).toISOString()
+        };
+    },
+    cancelAppt: async args => {
+        try{
+           const booking = await Booking.findById(args.bookingId).populate('appointment'); 
+           const appointment = {
+               ...booking.appointment._doc, 
+               _id: booking.appointment.id, 
+               creator: user.bind(this, booking.appointment._doc.creator) 
+            }; 
+            
+        await Booking.deleteOne({_id: args.bookingId});
+         return appointment;
+        }
+        catch(err) {
+            throw err;
+        }
+    }
+};
