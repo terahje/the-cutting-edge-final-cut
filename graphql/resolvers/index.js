@@ -2,19 +2,24 @@ const bcrypt = require('bcrypt');
 const Appt = require('../../models/appt');
 const User = require('../../models/user');
 const Booking = require('../../models/booking');
-const appt = async apptIds => {
-   
+
+// function to hold the mapped appointment
+const convertAppt = appointment => {
+    return {
+        ...appointment._doc, 
+        _id: appointment.id,
+        date: new Date(appointment._doc.date).toISOString(),
+        creator: user.bind(this, appointment._doc.creator)
+    };
+};
+
+const appt = async apptIds => {   
    try {
     const appt =  await Appt.find({ _id: { $in: apptIds } });
-        appt.map(appointment => {
-            return { 
-                ...appointment._doc, 
-                _id: appointment.id, 
-                date: new Date(appointment._doc.date).toISOString(),
-                creator:  user.bind(this, appointment.creator)
-            };
+        return appt.map(appointment => {
+            return convertAppt(appointment);
         });
-      return appt;
+      
     } catch (err) {
         throw err;
     }
@@ -24,9 +29,7 @@ const singleAppt = async apptId => {
     try{
         //get the appointment
         const appointment = await Appt.findById(apptId);
-        return {...appointment._doc, 
-            _id: appointment.id, 
-            creator:  user.bind(this, appointment.creator)}
+        return convertAppt(appointment);
     }
     catch (err) {
         throw err;
@@ -50,12 +53,7 @@ const user = async userId => {
         try{
         const appt = await Appt.find()
             return appt.map(appointment => {
-                return {
-                    ...appointment._doc, 
-                    _id: appointment.id,
-                    date: new Date(appointment._doc.date).toISOString(),
-                    creator: user.bind(this, appointment._doc.creator)
-                };
+                return convertAppt(appointment);
             });
         }catch (err) {
             throw err;
@@ -152,11 +150,7 @@ const user = async userId => {
     cancelAppt: async args => {
         try{
            const booking = await Booking.findById(args.bookingId).populate('appointment'); 
-           const appointment = {
-               ...booking.appointment._doc, 
-               _id: booking.appointment.id, 
-               creator: user.bind(this, booking.appointment._doc.creator) 
-            }; 
+           const appointment = convertAppt(booking.appointment);
             
         await Booking.deleteOne({_id: args.bookingId});
          return appointment;
