@@ -2,22 +2,23 @@ const bcrypt = require('bcrypt');
 const Appt = require('../../models/appt');
 const User = require('../../models/user');
 const Booking = require('../../models/booking');
-
+const { dateToString } = require('../../helpers/date');
 // function to hold the mapped appointment
-const convertAppt = appointment => {
+const newAppt = appointment => {
     return {
         ...appointment._doc, 
         _id: appointment.id,
-        date: new Date(appointment._doc.date).toISOString(),
+        date: dateToString(appointment._doc.date),
         creator: user.bind(this, appointment._doc.creator)
     };
 };
+
 
 const appt = async apptIds => {   
    try {
     const appt =  await Appt.find({ _id: { $in: apptIds } });
         return appt.map(appointment => {
-            return convertAppt(appointment);
+            return newAppt(appointment);
         });
       
     } catch (err) {
@@ -29,7 +30,7 @@ const singleAppt = async apptId => {
     try{
         //get the appointment
         const appointment = await Appt.findById(apptId);
-        return convertAppt(appointment);
+        return newAppt(appointment);
     }
     catch (err) {
         throw err;
@@ -69,8 +70,8 @@ const user = async userId => {
                    _id: booking.id,
                    user: user.bind(this, booking._doc.user),
                    appointment: singleAppt.bind(this, booking._doc.appointment),
-                   createdAt: new Date(booking._doc.createdAt).toISOString(),
-                   updatedAt: new Date(booking._doc.updatedAt).toISOString()
+                   createdAt: dateToString(booking._doc.createdAt),
+                   updatedAt: dateToString(booking._doc.updatedAt)
                };
            });
         }
@@ -95,7 +96,7 @@ const user = async userId => {
       createdAppts = {
         ...result._doc,
         _id: result._doc._id.toString(),
-        date: new Date(appointment._doc.date).toISOString(),
+        date: dateToString(appointment._doc.date),
         creator: user.bind(this, result._doc.creator)
       };
       const creator = await User.findById('5fff85e6a2c1af1ea3273646');
@@ -143,8 +144,8 @@ const user = async userId => {
            _id: result.id, 
         user: user.bind(this, booking._doc.user),
         appointment: singleAppt.bind(this, booking._doc.appointment),
-        createdAt: new Date(result._doc.createdAt).toISOString(),
-        updatedAt: new Date(result._doc.updatedAt).toISOString()
+        createdAt: dateToString(result._doc.createdAt),
+        updatedAt: dateToString(result._doc.updatedAt)
         };
     },
     cancelAppt: async args => {
