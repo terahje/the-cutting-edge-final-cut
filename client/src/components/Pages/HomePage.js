@@ -1,5 +1,8 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
+import services from '../services.js';
+import Service from '../components/Service';
+
 
 const HomePage = () => {
     return (
@@ -8,7 +11,7 @@ const HomePage = () => {
             <Row>
             {services.map(service=>(
                 <Col sm={12} md={6} lg={4}>
-                    <h3>{service.name}</h3>
+                    <Service service={service} />
                 </Col>
             ))}
 
