@@ -15,7 +15,7 @@ const Header = () => {
 							<Nav.Link href='/appt'>
 								<i className='far fa-calendar-alt'> </i> Appointments
 							</Nav.Link>
-							<Nav.Link href='/service'>
+							<Nav.Link href='/booking'>
 								<i className='fas fa-cut'> </i> Services
 							</Nav.Link>
 							<Nav.Link href='/login'>
