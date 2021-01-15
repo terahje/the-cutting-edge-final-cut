@@ -19,16 +19,15 @@ function App() {
 			<React.Fragment>
 				<Header />
 				<main className='py-3'>
-					<Switch>
-						<Redirect from='/' to='/login' exact />
-						<Route path='/' component={HomePage} exact />
-						<Route path='/login' component={Auth} />
-						<Route path='/appt' component={Appt} />
-						<Route path='/booking' component={Booking} />
-					</Switch>
-					<div>
-						<Container>This is the home page</Container>
-					</div>
+					<Container>
+						<Switch>
+							<Redirect from='/' to='/login' exact />
+							<Route path='/' component={HomePage} exact />
+							<Route path='/login' component={Auth} />
+							<Route path='/appt' component={Appt} />
+							<Route path='/booking' component={Booking} />
+						</Switch>
+					</Container>
 				</main>
 				<Footer />
 			</React.Fragment>
