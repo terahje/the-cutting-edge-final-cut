@@ -28,6 +28,12 @@ module.exports = buildSchema(
         createdAppts: [Appt!]
     }
 
+    type AuthData {
+        userId: ID!
+        token: String!
+        tokenExpiration: Int!
+      }
+
     input ApptInput {
         title: String!
         description: String!
@@ -45,6 +51,7 @@ module.exports = buildSchema(
     type RootQuery{
         appt: [Appt!]!
         bookings: [Booking!]!
+        login(email: String!, password: String!): AuthData!
     }
 
     type RootMutation {
@@ -53,8 +60,9 @@ module.exports = buildSchema(
         bookAppt(apptId: ID!): Booking!
         cancelAppt(bookingId: ID!): Appt!
     }
-        schema {
-            query: RootQuery
-            mutation: RootMutation
-        }
+    
+    schema {
+        query: RootQuery
+        mutation: RootMutation
+    }
     `)
