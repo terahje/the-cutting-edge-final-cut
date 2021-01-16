@@ -14,7 +14,7 @@ app.use('/graphql', graphqlHTTP({
 }));
 
 app.get('/', (req, res, next) => {
-    // res.send('Hello World');
+    res.send('Hello World');
 })
 
 mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.m2yyl.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`)

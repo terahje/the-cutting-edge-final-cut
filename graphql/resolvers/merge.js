@@ -2,27 +2,7 @@ const Appt = require('../../models/appt');
 const User = require('../../models/user');
 const { dateToString } = require('../../helpers/date');
 
- // function to hold the mapped appointment
- const modifyAppt = appointment => {
-    return {
-        ...appointment._doc, 
-        _id: appointment.id,
-        date: dateToString(appointment._doc.date),
-        creator: user.bind(this, appointment._doc.creator)
-    };
-};
-
-//function to hold the mapped booking
-const modifyBooking = booking => {
-    return {
-        ...booking._doc,
-        _id: booking.id,
-        user: user.bind(this, booking._doc.user),
-        appointment: singleAppt.bind(this, booking._doc.appointment),
-        createdAt: dateToString(booking._doc.createdAt),
-        updatedAt: dateToString(booking._doc.updatedAt)
-    }
-};
+ 
 //all appointments
 const appt = async apptId => {
     try {
@@ -30,7 +10,7 @@ const appt = async apptId => {
       appt.map(appointment => {
         return modifyAppt(appointment);
       });
-      return appt;
+      
     } catch (err) {
       throw err;
     }
@@ -59,7 +39,27 @@ const user = async userId => {
       throw err;
     }
   };
+// function to hold the mapped appointment
+const modifyAppt = appointment => {
+  return {
+      ...appointment._doc, 
+      _id: appointment.id,
+      date: dateToString(appointment._doc.date),
+      creator: user.bind(this, appointment._doc.creator)
+  };
+};
 
+//function to hold the mapped booking
+const modifyBooking = booking => {
+  return {
+      ...booking._doc,
+      _id: booking.id,
+      user: user.bind(this, booking._doc.user),
+      appointment: singleAppt.bind(this, booking._doc.appointment),
+      createdAt: dateToString(booking._doc.createdAt),
+      updatedAt: dateToString(booking._doc.updatedAt)
+  }
+};
  
 
 exports.modifyAppt = modifyAppt;

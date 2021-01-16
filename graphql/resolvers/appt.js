@@ -1,4 +1,5 @@
 const Appt = require('../../models/appt');
+const User = require('../../models/user');
 const { modifyAppt } = require('./merge');
 
 module.exports = 
@@ -44,4 +45,5 @@ module.exports =
     }
   }
    
+
 };

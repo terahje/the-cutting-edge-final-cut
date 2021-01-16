@@ -13,7 +13,6 @@ module.exports =
            return bookings.map(booking => {
                return modifyBooking(booking);  
            });
-          
         }
         catch (err) {
             throw err;
