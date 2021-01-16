@@ -2,9 +2,9 @@ import React from "react";
 
 const Auth = () => {
 	return (
-		<div>
+		<form>
 			<h1>This is the Login Page</h1>
-		</div>
+		</form>
 	);
 };
 
