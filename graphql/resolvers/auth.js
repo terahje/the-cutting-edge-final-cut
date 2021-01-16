@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const User = require('../../models/user');
+const jwt = require('jsonwebtoken');
 
  module.exports = 
  {
@@ -21,5 +22,25 @@ const User = require('../../models/user');
         } catch (err) {
             throw err;
         }
+    },
+
+    login: async ({email, password}) => {
+        const user = await User.findOne({email: email});
+        if(!user) {
+            throw new Error( "We could not find this user!");
+        } 
+        //check if entered password matches the hashed password
+        const isMatch = await bcrypt.compare(password, user.password);
+        if(!isMatch) {
+            throw new Error("The entered password does not match");
+        }
+       const token =  jwt.sign({ userId: user.id, email: user.email}, 'thisismysecretkey', 
+        {
+            expiresIn: '1hr'
+        } 
+
+       );
+       return {userId: user.id, token: token, tokenExpiration: 1}
+
     }
 };
