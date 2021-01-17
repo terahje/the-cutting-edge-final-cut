@@ -1,37 +1,41 @@
-Service.init(
-    {
+const mongoose = require('mongoose');
+
+const { Schema } = mongoose;
+
+const serviceSchema = new Schema({
         //table definitions
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
-        }, 
+        name: {
+            type: String,
+            required: true,
+            trim: true
+          },
         category: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type: String,
+            required: true,
         },
         style: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type: String,
+            required: true,
         },
         description: {
-           type: DataTypes.STRING,
-           allowNull: false
+            type: String,
+            required: true,
        },
         price: {
-           type: DataTypes.DECIMAL,
-           allowNull: false
+           type: String,
+           required: true
        },
         time_alloted: {
-            type: DataTypes.INTEGER,
+            type: String,
 
        },
         user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'stylist',
-                key: 'id'
-            } 
+            type: Schema.Types.ObjectId,
+            ref: 'User',
+            required: true
         }
-    }
+    });
+
+const Service = mongoose.model('Service', serviceSchema);
+
+module.exports = Service;
