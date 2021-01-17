@@ -1,10 +1,9 @@
-const Appt = require('../../models/appt');
-const User = require('../../models/user');
+const { User, Appt } = require('../../models');
 const { modifyAppt } = require('./merge');
 
-module.exports = 
- {
-    appt: async () => {
+const apptResolver =  {
+  Query: {
+    Appt: async () => {
         try{
         const appt = await Appt.find()
             return appt.map(appointment => {
@@ -14,9 +13,13 @@ module.exports =
             throw err;
         }
     },
-    
+  }, 
+  Mutation: {
     //create our appointments
-    createAppt: async (args) => {
+    createAppt: async (args, req) => {
+      if (!req.isAuth) {
+        throw new Error('Please sign in!');
+      }
         const appointment = new Appt({
            title: args.apptInput.title,
            description: args.apptInput.description,
@@ -24,13 +27,13 @@ module.exports =
            price: +args.apptInput.price,
            date: new Date(args.apptInput.date),
            time: args.apptInput.time,
-           creator: '6001a9f6850d32286e2cdac3'
+           creator: req.userId
     });
     let createdAppts;
     try {
       const result = await appointment.save();
       createdAppts = modifyAppt(result);
-      const creator = await User.findById('600252720b5d8809c9de61a4');
+      const creator = await User.findById(req.userId);
 
       if (!creator) {
         throw new Error('User not found.');
@@ -44,6 +47,8 @@ module.exports =
       throw err;
     }
   }
-   
+},
 
 };
+
+module.exports = apptResolver;

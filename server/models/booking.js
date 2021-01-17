@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 const bookingSchema = new Schema({
     appointment: {
@@ -16,4 +16,7 @@ const bookingSchema = new Schema({
 }
 );
 
-module.exports = mongoose.model('Booking', bookingSchema);
+const Booking = mongoose.model('Booking', bookingSchema);
+
+module.exports = Booking;
+

@@ -1,7 +1,6 @@
-const {buildSchema} = require('graphql');
+const { gql } = require('apollo-server-express');
 
-module.exports = buildSchema(
-`
+const typeDefs = gql`
     type Appt {
         _id: ID!
         title: String!
@@ -48,21 +47,19 @@ module.exports = buildSchema(
         password: String!
     }
 
-    type RootQuery{
+    type Query{
         appt: [Appt!]!
         bookings: [Booking!]!
         login(email: String!, password: String!): AuthData!
     }
 
-    type RootMutation {
+    type Mutation {
         createAppt(apptInput: ApptInput): Appt
         createUser(userInput: UserInput): User
         bookAppt(apptId: ID!): Booking!
         cancelAppt(bookingId: ID!): Appt!
     }
     
-    schema {
-        query: RootQuery
-        mutation: RootMutation
-    }
-    `)
+    `;
+
+    module.exports = typeDefs;

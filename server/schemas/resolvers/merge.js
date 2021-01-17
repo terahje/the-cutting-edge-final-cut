@@ -1,5 +1,5 @@
-const Appt = require('../../models/appt');
-const User = require('../../models/user');
+const Appt = require('../../models/Appt');
+const User = require('../../models/User');
 const { dateToString } = require('../../helpers/date');
 
  
