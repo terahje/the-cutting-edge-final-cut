@@ -45,7 +45,7 @@ module.exports = buildSchema(
     type RootQuery{
         appt: [Appt!]!
         bookings: [Booking!]!
-        login(email:String!, password: String!): AuthData!
+        
     }
 
     type RootMutation {
