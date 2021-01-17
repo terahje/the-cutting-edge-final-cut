@@ -1,7 +1,7 @@
 const Appt = require('../../models/appt');
 const User = require('../../models/user');
 const { modifyAppt } = require('./merge');
-
+const isAuth = require('../../utils/is-auth');
 module.exports = 
  {
     appt: async () => {
@@ -16,7 +16,10 @@ module.exports =
     },
     
     //create our appointments
-    createAppt: async (args) => {
+    createAppt: async (args, req) => {
+      if(!isAuth) {
+        throw new Error('Unable to authenticate');
+      }
         const appointment = new Appt({
            title: args.apptInput.title,
            description: args.apptInput.description,
