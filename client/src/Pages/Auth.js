@@ -2,11 +2,20 @@ import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 
 class Auth extends Component {
+	state = {
+		isLogin: true,
+	};
 	constructor(props) {
 		super(props);
 		this.emailEl = React.createRef();
 		this.passwordEl = React.createRef();
 	}
+
+	switchModeHandler = () => {
+		this.setState((prevState) => {
+			return { isLogin: !prevState.isLogin };
+		});
+	};
 
 	submitHandler = (event) => {
 		event.preventDefault();
@@ -18,17 +27,30 @@ class Auth extends Component {
 			return;
 		}
 
-		const requestBody = {
+		let requestBody = {
 			query: `
+			query{
+				login(email: "${email}", password: "${password}"){
+					userId
+					token
+					tokenExpiration
+		}
+	}
+	`,
+		};
+
+		if (!this.state.isLogin) {
+			requestBody = {
+				query: `
 			mutation{
 				createUser(userInput: {email: "${email}", password: "${password}"}){
 					_id
 					email
 				}
 			}
-
 			`,
-		};
+			};
+		}
 
 		fetch("http://localhost:8000/graphql", {
 			method: "POST",
@@ -36,8 +58,21 @@ class Auth extends Component {
 			headers: {
 				"Content-Type": "application/json",
 			},
-		});
+		})
+			.then((res) => {
+				if (res.status !== 200 && res.status !== 201) {
+					throw new Error("Failed");
+				}
+				return res.json();
+			})
+			.then((resData) => {
+				console.log(resData);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	};
+
 	render() {
 		return (
 			<Form onSubmit={this.submitHandler}>
@@ -60,15 +95,16 @@ class Auth extends Component {
 						ref={this.passwordEl}
 					/>
 				</Form.Group>
-				<Form.Group controlId='formBasicCheckbox'>
-					<Form.Check type='checkbox' label='Check me out' />
-				</Form.Group>
-				<Button variant='primary' type='button'>
-					Sign-up
+
+				<Button
+					variant='primary'
+					type='button'
+					onClick={this.switchModeHandler}>
+					Switch to {this.state.isLogin ? "Sign-up" : "Login"}
 				</Button>
 				{"  "}
 				<Button variant='primary' type='submit'>
-					Login
+					Submit
 				</Button>
 			</Form>
 		);
