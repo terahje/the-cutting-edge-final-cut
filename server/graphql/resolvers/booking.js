@@ -1,12 +1,13 @@
-const Booking = require('../../models/booking');
-const Appt = require('../../models/appt');
+const { Booking, Appt } = require('../../models');
 const { modifyBooking, modifyAppt } = require('./merge');
 
 
-module.exports = 
- {
-    
-    bookings: async () => {
+const bookingResolver = {
+    Query: {
+    bookings: async (args, req) => {
+        if (!req.isAuth) {
+            throw new Error('Please sign in!');
+          }
         try{
            //get all of the bookings from db
            const bookings = await Booking.find();
@@ -17,19 +18,26 @@ module.exports =
         catch (err) {
             throw err;
         }
-    },
-    
-    bookAppt: async args => {
+    }
+},
+    Mutation: {
+    bookAppt: async (args, req) => {
+        if (!req.isAuth) {
+            throw new Error('Please sign in!');
+          }
         //get the appointment to book
         const retrievedAppt = await Appt.findOne({_id: args.apptId});
         const booking = new Booking({
-            user: '600252720b5d8809c9de61a4',
+            user: req.userId,
             appointment: retrievedAppt
         });
         const result = await booking.save();
         return modifyBooking(result);
     },
-    cancelAppt: async args => {
+    cancelAppt: async (args, req) => {
+        if (!req.isAuth) {
+            throw new Error('Please sign in!');
+          }
         try{
            const booking = await Booking.findById(args.bookingId).populate('appointment'); 
            const appointment = modifyAppt(booking.appointment);
@@ -41,4 +49,8 @@ module.exports =
             throw err;
         }
     }
+}
 };
+
+
+module.exports = bookingResolver;
