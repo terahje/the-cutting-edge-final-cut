@@ -1,5 +1,8 @@
-Service.init(
-    {
+const mongoose = require('mongoose');
+
+const Schema = mongoose.Schema;
+
+const serviceSchema = new Schema({
         //table definitions
         id: {
             type: DataTypes.INTEGER,
@@ -34,4 +37,6 @@ Service.init(
                 key: 'id'
             } 
         }
-    }
+    });
+
+    module.exports = mongoose.model('Service', serviceSchema);
