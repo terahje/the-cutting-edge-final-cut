@@ -6,6 +6,8 @@ const db = require("./config/connection");
 const graphQlSchema = require("./graphql/schema/index");
 const graphQlResolvers = require("./graphql/resolvers/index");
 
+const isAuth = require("./middleware/is-auth");
+
 const path = require("path");
 const { allowedNodeEnvironmentFlags } = require("process");
 
@@ -24,6 +26,8 @@ app.use((req, res, next) => {
 	}
 	next();
 });
+
+app.use(isAuth);
 
 app.use(
 	"/graphql",
