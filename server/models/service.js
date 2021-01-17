@@ -1,40 +1,42 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const { Schema } = mongoose;
+const Schema = mongoose.Schema;
 
 const serviceSchema = new Schema({
-	//table definitions
-	name: {
-		type: String,
-		required: true,
-		trim: true,
-	},
-	category: {
-		type: String,
-		required: true,
-	},
-	style: {
-		type: String,
-		required: true,
-	},
-	description: {
-		type: String,
-		required: true,
-	},
-	price: {
-		type: String,
-		required: true,
-	},
-	time_alloted: {
-		type: String,
-	},
-	user_id: {
-		type: Schema.Types.ObjectId,
-		ref: "User",
-		required: true,
-	},
-});
+        //table definitions
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
+        }, 
+        category: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        style: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        description: {
+           type: DataTypes.STRING,
+           allowNull: false
+       },
+        price: {
+           type: DataTypes.DECIMAL,
+           allowNull: false
+       },
+        time_alloted: {
+            type: DataTypes.INTEGER,
 
-const Service = mongoose.model("Service", serviceSchema);
+       },
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'stylist',
+                key: 'id'
+            } 
+        }
+    });
 
-module.exports = Service;
+    module.exports = mongoose.model('Service', serviceSchema);

@@ -1,11 +1,12 @@
 {
-	"name": "backend-server",
+	"name": "the-cutting-edge",
 	"version": "1.0.0",
-	"description": "server files of the cutting-edge",
+	"description": "class project 3",
 	"main": "app.js",
 	"scripts": {
-		"start": "node app.js",
-		"watch": "nodemon"
+		"start": "node server.js",
+		"watch": "nodemon",
+		"seed": "node config/seeds.js"
 	},
 	"author": "",
 	"license": "ISC",
@@ -17,7 +18,6 @@
 		"graphql": "^15.4.0",
 		"jsonwebtoken": "^8.5.1",
 		"mongoose": "^5.11.11",
-		"nodemon": "^2.0.7",
-		"stripe": "^8.130.0"
+		"nodemon": "^2.0.7"
 	}
 }

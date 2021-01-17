@@ -1,9 +1,11 @@
-const { Booking, Appt } = require('../../models');
+const Booking = require('../../models/booking');
+const Appt = require('../../models/appt');
 const { modifyBooking, modifyAppt } = require('./merge');
 
 
-const bookingResolver = {
-    Query: {
+module.exports = 
+ {
+    
     bookings: async (args, req) => {
         if (!req.isAuth) {
             throw new Error('Please sign in!');
@@ -18,9 +20,8 @@ const bookingResolver = {
         catch (err) {
             throw err;
         }
-    }
-},
-    Mutation: {
+    },
+    
     bookAppt: async (args, req) => {
         if (!req.isAuth) {
             throw new Error('Please sign in!');
@@ -49,8 +50,4 @@ const bookingResolver = {
             throw err;
         }
     }
-}
 };
-
-
-module.exports = bookingResolver;

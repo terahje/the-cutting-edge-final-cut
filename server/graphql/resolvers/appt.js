@@ -1,9 +1,10 @@
-const { User, Appt } = require('../../models');
+const Appt = require('../../models/appt');
+const User = require('../../models/user');
 const { modifyAppt } = require('./merge');
 
-const apptResolver =  {
-  Query: {
-    Appt: async () => {
+module.exports = 
+ {
+    appt: async () => {
         try{
         const appt = await Appt.find()
             return appt.map(appointment => {
@@ -13,8 +14,7 @@ const apptResolver =  {
             throw err;
         }
     },
-  }, 
-  Mutation: {
+    
     //create our appointments
     createAppt: async (args, req) => {
       if (!req.isAuth) {
@@ -47,8 +47,6 @@ const apptResolver =  {
       throw err;
     }
   }
-},
+   
 
 };
-
-module.exports = apptResolver;

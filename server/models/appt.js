@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const { Schema } = mongoose;
+const Schema = mongoose.Schema;
 
 const apptSchema = new Schema({
         title: {
@@ -33,6 +33,4 @@ const apptSchema = new Schema({
         }
 });
 
-const Appt = mongoose.model('Appt', apptSchema);
-
-module.exports = Appt;
+module.exports = mongoose.model('Appt', apptSchema);
