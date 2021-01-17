@@ -26,6 +26,13 @@ module.exports = buildSchema(
         email: String!
         password: String
         createdAppts: [Appt!]
+
+    }
+
+    type AuthData {
+        userId:ID!
+        token: String!
+        tokenExpiration: Int!
     }
 
     input ApptInput {
@@ -45,6 +52,7 @@ module.exports = buildSchema(
     type RootQuery{
         appt: [Appt!]!
         bookings: [Booking!]!
+        login(email: String!, password: String!): AuthData!
         
     }
 
