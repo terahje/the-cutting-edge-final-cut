@@ -21,7 +21,6 @@ module.exports = buildSchema(
        updatedAt: String!
 
     }
-
     type User {
         _id: ID!
         email: String!
@@ -33,7 +32,7 @@ module.exports = buildSchema(
         userId: ID!
         token: String!
         tokenExpiration: Int!
-    }
+      }
 
     input ApptInput {
         title: String!
@@ -61,8 +60,9 @@ module.exports = buildSchema(
         bookAppt(apptId: ID!): Booking!
         cancelAppt(bookingId: ID!): Appt!
     }
-        schema {
-            query: RootQuery
-            mutation: RootMutation
-        }
+    
+    schema {
+        query: RootQuery
+        mutation: RootMutation
+    }
     `)
