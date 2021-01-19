@@ -48,11 +48,11 @@ function filterStyles() {
 
   return (
     <div className="my-2">
-      <h2>Our Services:</h2>
+      <h3 className="bg-secondary text-light "><strong>Choose Your Style:</strong></h3>
       {state.styles.length ? (
         <div className="flex-row">
             {filterStyles().map(style => (
-                <StyleItem
+                <StyleItem 
                   key= {style._id}
                   _id={style._id}
                   image={style.image}

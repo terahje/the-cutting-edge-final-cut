@@ -40,10 +40,10 @@ const CategoryMenu = () => {
   };
 
   return (
-    <div>
-      <h2>Choose a Category:</h2>
+    <div className=''>
+      <h3 className="mb-3 mt-2"><strong>Style Categories:</strong></h3>
       {categories.map(item => (
-        <button
+        <button className='btn btn-outline-primary mb-2'
           key={item._id}
           onClick={() => {
             handleClick(item._id);

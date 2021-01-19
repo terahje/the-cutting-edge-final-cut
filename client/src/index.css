@@ -31,6 +31,9 @@ h6 {
   width: 5%;
 }
 
+.style-image {
+  width: 75%;
+}
 p {
   font-size: 1.1rem;
   margin-top: 0;
@@ -59,7 +62,7 @@ button {
   font-size: 1rem;
   text-decoration: none;
   padding: 0.25rem 1rem;
-  border-radius: .25rem;
+  /* border-radius: .25rem; */
   border: none;
   outline: none;
   cursor: pointer;
