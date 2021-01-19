@@ -21,12 +21,12 @@ export function idbPromise(storeName, method, object) {
             store = tx.objectStore(storeName);
 
             db.onerror = function(e) {
-                console.log('error' e);
+                console.log('error', e);
             };
             switch (method) {
                 case 'put':
                     store.put(object);
-                    resolve(object)l
+                    resolve(object)
                     break;
                 case 'get':
                     const all = store.getAll();
