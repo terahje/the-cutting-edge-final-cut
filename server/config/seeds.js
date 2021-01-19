@@ -20,7 +20,7 @@ db.once('open', async () => {
       name: 'Cornrows',
       description:
         '2 braids in cornrows braided close to the scalp. This style is the most iconic cornrow style.',
-      image: 'cookie-tin.jpg',
+      image: 'braids.jpg',
       category: categories[0]._id,
       price: 100.00
     },
@@ -28,7 +28,7 @@ db.once('open', async () => {
       name: 'Crochet',
       description:
         'A special way of braiding that adds extensions to the hair.',
-      image: 'canned-coffee.jpg',
+      image: 'braids.jpg',
       category: categories[0]._id,
       price: 100.00
     },
@@ -37,7 +37,7 @@ db.once('open', async () => {
       category: categories[0]._id,
       description:
         'A special way of braiding that adds extensions to the hair.',
-      image: 'toilet-paper.jpg',
+      image: 'braids.jpg',
       price: 100.00
     },
     {
@@ -45,7 +45,7 @@ db.once('open', async () => {
       category: categories[0]._id,
       description:
         'Praesent placerat, odio vel euismod venenatis, lectus arcu laoreet felis, et fringilla sapien turpis vestibulum nisl.',
-      image: 'soap.jpg',
+      image: 'braids.jpg',
       price: 100.00
     },
     {
@@ -53,7 +53,7 @@ db.once('open', async () => {
       category: categories[0]._id,
       description:
         'Vivamus ut turpis in purus pretium mollis. Donec turpis odio, semper vel interdum ut, vulputate at ex. Duis dignissim nisi vel tortor imperdiet finibus. Aenean aliquam sagittis rutrum.',
-      image: 'wooden-spoons.jpg',
+      image: 'braids.jpg',
       price: 100.00
     },
     {
@@ -61,7 +61,7 @@ db.once('open', async () => {
       category: categories[0]._id,
       description:
         'Vestibulum risus metus, luctus non tortor quis, tincidunt consectetur ex. Nullam vitae lobortis ligula, ut sagittis massa. Curabitur consectetur, tellus at pulvinar venenatis, erat augue cursus erat, eu ullamcorper eros lectus ultrices ipsum. Integer rutrum, augue vitae auctor venenatis, turpis turpis elementum orci, at sagittis risus mi a leo.',
-      image: 'camera.jpg',
+      image: 'braids.jpg',
       price: 150.00
     },
     {
@@ -69,7 +69,7 @@ db.once('open', async () => {
       category: categories[0]._id,
       description:
         'In sodales, ipsum quis ultricies porttitor, tellus urna aliquam arcu, eget venenatis purus ligula ut nisi. Fusce ut felis dolor. Mauris justo ante, aliquet non tempus in, tempus ac lorem. Aliquam lacinia dolor eu sem eleifend ultrices. Etiam mattis metus metus. Sed ligula dui, placerat non turpis vitae, suscipit volutpat elit. Phasellus sagittis, diam elementum suscipit fringilla, libero mauris scelerisque ex, ac interdum diam erat non sapien.',
-      image: 'tablet.jpg',
+      image: 'braids.jpg',
       price: 85.00
     },
     {
@@ -77,14 +77,14 @@ db.once('open', async () => {
       category: categories[1]._id,
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare diam quis eleifend rutrum. Aliquam nulla est, volutpat non enim nec, pharetra gravida augue. Donec vitae dictum neque. Pellentesque arcu lorem, fringilla non ligula ac, tristique bibendum erat. Ut a semper nibh. Quisque a mi et mi tempor ultricies. Maecenas eu ipsum eu enim hendrerit accumsan at euismod urna.',
-      image: 'bedtime-book.jpg',
+      image: 'cuts.jpg',
       price: 50.00
     },
     {
       name: 'Wash with flatiron or wash press',
       category: categories[1]._id,
       description: 'Ut vulputate hendrerit nibh, a placerat elit cursus interdum.',
-      image: 'spinning-top.jpg',
+      image: 'cuts.jpg',
       price: 75.00,
     },
     {
@@ -92,7 +92,7 @@ db.once('open', async () => {
       category: categories[1]._id,
       description:
         'Sed a mauris condimentum, elementum enim in, rhoncus dui. Phasellus lobortis leo odio, sit amet pharetra turpis porta quis.',
-      image: 'plastic-horses.jpg',
+      image: 'cuts.jpg',
       price: 40.00
     },
     {
@@ -100,7 +100,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       description:
         'Vestibulum et erat finibus erat suscipit vulputate sed vitae dui. Ut laoreet tellus sit amet justo bibendum ultrices. Donec vitae felis vestibulum, congue augue eu, finibus turpis.',
-      image: 'teddy-bear.jpg',
+      image: 'perms.jpg',
       price: 100.00
     },
     {
@@ -108,7 +108,7 @@ db.once('open', async () => {
       category: categories[3]._id,
       description:
         'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
-      image: 'alphabet-blocks.jpg',
+      image: 'color.jpg',
       price: 100.00
     },
     {
@@ -116,7 +116,7 @@ db.once('open', async () => {
       category: categories[1]._id,
       description:
         'Vestibulum et erat finibus erat suscipit vulputate sed vitae dui. Ut laoreet tellus sit amet justo bibendum ultrices. Donec vitae felis vestibulum, congue augue eu, finibus turpis.',
-      image: 'teddy-bear.jpg',
+      image: 'cuts.jpg',
       price: 75.00
     }
     
