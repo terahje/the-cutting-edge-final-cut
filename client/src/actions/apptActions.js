@@ -8,6 +8,6 @@ export const listAppts = () => async (dispatch) => {
 	try {
         dispatch({ type: APPT_LIST_REQUEST })
         
-        const { data } = await fetch.get('')
+        const { data }=awiat fetch.get('')
 	}
 };

@@ -7,7 +7,9 @@ const reducer = combineReducers({
 	apptList: apptListReducer,
 });
 
-const initialState = {};
+const initialState = {
+	
+};
 
 const middleware = [thunk];
 

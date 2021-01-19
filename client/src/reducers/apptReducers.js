@@ -16,3 +16,6 @@ export const apptListReducer = (state = { appts: [] }, action) => {
 			return state;
 	}
 };
+
+// Export the reducer
+export default apptListReducer;

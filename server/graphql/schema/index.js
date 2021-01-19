@@ -1,7 +1,7 @@
-const {buildSchema} = require('graphql');
+const { gql } = require('apollo-server-express');
 
-module.exports = buildSchema(
-`
+
+const typeDefs = gql`
     type Appt {
         _id: ID!
         title: String!
@@ -65,4 +65,6 @@ module.exports = buildSchema(
         query: RootQuery
         mutation: RootMutation
     }
-    `)
+`;
+
+module.exports = typeDefs;
