@@ -66,7 +66,6 @@ function Nav() {
       <nav>
         {showNavigation()}
       </nav>
-      
     </header>
   );
 }
