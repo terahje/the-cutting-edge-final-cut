@@ -1,7 +1,6 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import { Navbar} from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
 import logoImage from "../../assets/logo.png";
 
@@ -12,14 +11,20 @@ function Nav() {
       return (
       <header> 
         <Navbar className='navbar navbar-expand-lg navbar-dark bg-primary'>
-            <Link to="/orderHistory">
-            <i className='far fa-calendar-alt'> </i> Appointments
-            </Link>
-            <a href="/" onClick={() => Auth.logout()}>
-              Logout
-            </a>
-          {/* </li>
-        </ul> */}
+          <div className='navbar-collapse' id='navbarColor01'>
+            <ul className='navbar-nav mr-auto'>
+              <li className="nav-item">
+                  <Link className='nav-link' to="/orderHistory">
+                  <i className='far fa-calendar-alt'> </i> Appointments
+                  </Link>
+              </li>
+              <li className="nav-item">
+                  <a className='nav-link' href="/" onClick={() => Auth.logout()}>
+                  Logout
+                  </a>
+            </li>
+          </ul>
+        </div>
         </Navbar>
         </header> 
       );
@@ -27,32 +32,41 @@ function Nav() {
       return (
         <header> 
         <Navbar className='navbar navbar-expand-lg navbar-dark bg-primary'>
-            <Link to="/signup">
-              Signup
-            </Link>
-         
-            <Link to="/login">
-              Login
-            </Link>
-            </Navbar>
+        <div className='navbar-collapse' id='navbarColor01'>
+            <ul className='navbar-nav mr-auto'>
+              <li className="nav-item">
+                <Link className='nav-link' to="/signup">
+                  Signup
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className='nav-link' to="/login">
+                  Login
+                </Link>
+              </li>
+            </ul>
+        </div>
+        </Navbar>
         </header> 
       );
     }
   }
 
   return (
-    <header className="flex-row px-1">
-      <h1>
+    <header className="flex-row">
+      <Navbar className='navbar navbar-expand-lg navbar-dark bg-primary'
+>
+      <img src={logoImage} className='logo-image' alt="logo" />
         <Link to="/">
-        <img src={logoImage} className='logo-image' alt="logo" />
           <span role="img" aria-label="shopping bag"></span>
           <Navbar.Brand> The Cutting Edge</Navbar.Brand>
         </Link>
-      </h1>
 
+      </Navbar>
       <nav>
         {showNavigation()}
       </nav>
+      
     </header>
   );
 }
