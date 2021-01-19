@@ -1,5 +1,5 @@
 const db = require('./connection');
-const { User, Product, Category } = require('../models');
+const { User, Style, Category } = require('../models');
 
 db.once('open', async () => {
   await Category.deleteMany();
@@ -13,9 +13,9 @@ db.once('open', async () => {
 
   console.log('categories seeded');
 
-  await Product.deleteMany();
+  await Style.deleteMany();
 
-  const products = await Product.insertMany([
+  const styles = await Style.insertMany([
     {
       name: 'Cornrows',
       description:
@@ -122,7 +122,7 @@ db.once('open', async () => {
     
   ]);
 
-  console.log('products seeded');
+  console.log('styles seeded');
 
   await User.deleteMany();
 
@@ -133,7 +133,7 @@ db.once('open', async () => {
     password: 'tester',
     orders: [
       {
-        products: [products[0]._id, products[0]._id, products[1]._id]
+        styles: [styles[0]._id, styles[0]._id, styles[1]._id]
       }
     ]
   });
