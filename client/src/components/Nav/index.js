@@ -1,40 +1,41 @@
 import React from "react";
 import Auth from "../../utils/auth";
+import { Navbar} from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
+import logoImage from "../../assets/logo.png";
 
 function Nav() {
 
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
+      <header> 
+        <Navbar className='navbar navbar-expand-lg navbar-dark bg-primary'>
             <Link to="/orderHistory">
-              Appointments
+            <i className='far fa-calendar-alt'> </i> Appointments
             </Link>
-          </li>
-          <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <a href="/" onClick={() => Auth.logout()}>
               Logout
             </a>
-          </li>
-        </ul>
+          {/* </li>
+        </ul> */}
+        </Navbar>
+        </header> 
       );
     } else {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
+        <header> 
+        <Navbar className='navbar navbar-expand-lg navbar-dark bg-primary'>
             <Link to="/signup">
               Signup
             </Link>
-          </li>
-          <li className="mx-1">
+         
             <Link to="/login">
               Login
             </Link>
-          </li>
-        </ul>
+            </Navbar>
+        </header> 
       );
     }
   }
@@ -43,8 +44,9 @@ function Nav() {
     <header className="flex-row px-1">
       <h1>
         <Link to="/">
+        <img src={logoImage} className='logo-image' alt="logo" />
           <span role="img" aria-label="shopping bag"></span>
-          The Cutting Edge
+          <Navbar.Brand> The Cutting Edge</Navbar.Brand>
         </Link>
       </h1>
 

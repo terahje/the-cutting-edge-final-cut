@@ -2,7 +2,7 @@ import { reducer } from '../utils/reducers';
 
 // import our actions
 import {
-    UPDATE_PRODUCTS,
+    UPDATE_STYLES,
     UPDATE_CATEGORIES,
     UPDATE_CURRENT_CATEGORY,
     ADD_TO_CART,
@@ -15,7 +15,7 @@ import {
 
 // create a sample of what our global state will look like
 const initialState = {
-    products: [],
+    styles: [],
     categories: [{ name: 'Food' }],
     currentCategory: '1',
     cart: [
@@ -33,14 +33,14 @@ const initialState = {
     cartOpen: false
   };
 
-test('UPDATE_PRODUCTS', () => {
+test('UPDATE_STYLES', () => {
     let newState = reducer(initialState, {
-        type: UPDATE_PRODUCTS,
-        products: [{}, {}]
+        type: UPDATE_STYLES,
+        styles: [{}, {}]
     });
 
-    expect(newState.products.length).toBe(2);
-    expect(initialState.products.length).toBe(0);
+    expect(newState.styles.length).toBe(2);
+    expect(initialState.styles.length).toBe(0);
 });
 
 test('UPDATE_CATEGORIES', () => {
@@ -66,7 +66,7 @@ test('UPDATE_CURRENT_CATEGORY', () => {
   test('ADD_TO_CART', () => {
     let newState = reducer(initialState, {
       type: ADD_TO_CART,
-      product: { purchaseQuantity: 1 }
+      style: { purchaseQuantity: 1 }
     });
   
     expect(newState.cart.length).toBe(3);
@@ -76,7 +76,7 @@ test('UPDATE_CURRENT_CATEGORY', () => {
   test('ADD_MULTIPLE_TO_CART', () => {
     let newState = reducer(initialState, {
       type: ADD_MULTIPLE_TO_CART,
-      products: [{}, {}]
+      styles: [{}, {}]
     });
   
     expect(newState.cart.length).toBe(4);

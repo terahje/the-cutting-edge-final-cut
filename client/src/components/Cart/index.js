@@ -21,7 +21,7 @@ const Cart = () => {
       if (!cart.length) {
           (async () => {
               const cart = await idbPromise('cart', 'get');
-              dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
+              dispatch({ type: ADD_MULTIPLE_TO_CART, styles: [...cart] });
           })()
       }
   }, [cart.length, dispatch]);
@@ -40,16 +40,16 @@ const Cart = () => {
     }
 
     const submitCheckout = () => {
-        const productIds = [];
+        const styleIds = [];
       
         cart.forEach((item) => {
           for (let i = 0; i < item.purchaseQuantity; i++) {
-            productIds.push(item._id);
+            styleIds.push(item._id);
           }
         });
 
         getCheckout({
-            variables: { products: productIds }
+            variables: { styles: styleIds }
           });
       }
       const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
@@ -67,7 +67,7 @@ const Cart = () => {
         <div className="cart-closed" onClick={toggleCart}>
           <span
             role="img"
-            aria-label="trash">🛒</span>
+            aria-label="trash">🧺</span>
         </div>
       );
     }
