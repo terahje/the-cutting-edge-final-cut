@@ -67,7 +67,7 @@ const Cart = () => {
         <div className="cart-closed" onClick={toggleCart}>
           <span
             role="img"
-            aria-label="trash">🛒</span>
+            aria-label="trash">🧺</span>
         </div>
       );
     }
@@ -75,7 +75,7 @@ const Cart = () => {
   return (
     <div className="cart">
         <div className="close" onClick={toggleCart}>[close]</div>
-            <h2>Shopping Cart</h2>
+            <h2>Style Basket</h2>
             {cart.length ? (
                 <div>
                 {cart.map(item => (
@@ -94,12 +94,12 @@ const Cart = () => {
                 </div>
                 </div>
             ) : (
-                <h3>
+                <h4>
                 <span role="img" aria-label="shocked">
-                    😱
+                💇
                 </span>
-                You haven't added anything to your cart yet!
-                </h3>
+                Your new hair style awaits you! Choose a style and we'll find you a stylist!
+                </h4>
             )}
             </div>
         );

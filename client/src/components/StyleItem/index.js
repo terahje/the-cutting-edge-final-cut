@@ -45,16 +45,19 @@ function StyleItem(item) {
   };
 
   return (
-    <div className="card px-1 py-1">
+    <div className='card border-secondary  mb-3'>
       <Link to={`/styles/${_id}`}>
         <img
+          className='style-image' 
           alt={name}
           src={`/images/${image}`}
         />
-        <p>{name}</p>
+        <div className='card-header'>
+       {name}
+        </div>
       </Link>
       <div>
-        <div>{quantity} Service is avaliable</div>
+        <div>{quantity} Style is avaliable</div>
         <span>${price}</span>
       </div>
       <button onClick={addToCart}>Add to cart</button>

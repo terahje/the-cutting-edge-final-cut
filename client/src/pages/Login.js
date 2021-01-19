@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations"
 import Auth from "../utils/auth";
+import { Form } from "react-bootstrap";
 
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' })
@@ -33,11 +34,12 @@ function Login(props) {
         ← Go to Signup
       </Link>
 
-      <h2>Login</h2>
+      <h2><strong>Login</strong></h2>
       <form onSubmit={handleFormSubmit}>
+      <Form.Group>
         <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email address:</label>
-          <input
+          <Form.Label htmlFor="email">Email address:</Form.Label>
+          <Form.Control
             placeholder="youremail@test.com"
             name="email"
             type="email"
@@ -45,9 +47,11 @@ function Login(props) {
             onChange={handleChange}
           />
         </div>
+        </Form.Group>
+        <Form.Group>
         <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
-          <input
+          <Form.Label htmlFor="pwd">Password:</Form.Label>
+          <Form.Control
             placeholder="******"
             name="password"
             type="password"
@@ -60,11 +64,14 @@ function Login(props) {
             <p className="error-text" >The provided credentials are incorrect</p>
           </div> : null
         }
+         </Form.Group>
+         <Form.Group>
         <div className="flex-row flex-end">
           <button type="submit">
             Submit
           </button>
         </div>
+        </Form.Group>
       </form>
     </div>
   );
