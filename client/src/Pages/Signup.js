@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useMutation } from '@apollo/react-hooks';
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
+import { Form } from "react-bootstrap";
+import  { heroImage } from "../assets/hero-image.jpeg";
 
 function Signup(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -41,15 +43,17 @@ function Signup(props) {
       <Link to="/login">
         ← Go to Login
       </Link>
-
-      <h2>Signup</h2>
+      
+      <h2><strong>Signup</strong></h2>
       <form onSubmit={handleFormSubmit}>
+        <Form.Group>
         <div className="flex-row space-between my-2">
            <div className="error">{error}</div>
         </div>
+        
           <div className="flex-row space-between my-2">
-          <label htmlFor="firstName">First Name:</label>
-          <input
+          <Form.Label htmlFor="firstName">First Name:</Form.Label>
+          <Form.Control
             placeholder="First"
             name="firstName"
             type="firstName"
@@ -57,9 +61,11 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
+        </Form.Group>
+        <Form.Group>
         <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Last Name:</label>
-          <input
+          <Form.Label htmlFor="lastName">Last Name:</Form.Label>
+          <Form.Control
             placeholder="Last"
             name="lastName"
             type="lastName"
@@ -67,9 +73,11 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
+        </Form.Group>
+        <Form.Group>
         <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email:</label>
-          <input
+          <Form.Label htmlFor="email">Email:</Form.Label>
+          <Form.Control
             placeholder="youremail@test.com"
             name="email"
             type="email"
@@ -77,9 +85,10 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
+        </Form.Group>
         <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
-          <input
+          <Form.Label htmlFor="pwd">Password:</Form.Label>
+          <Form.Control
             placeholder="******"
             name="password"
             type="password"
@@ -87,13 +96,19 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
+        <Form.Group>
         <div className="flex-row flex-end">
           <button type="submit">
             Submit
           </button>
         </div>
+        </Form.Group>
       </form>
+      <div>
+    
+      </div>
     </div>
+   
   );
 
 }
