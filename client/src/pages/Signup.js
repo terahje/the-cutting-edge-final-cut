@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/react-hooks';
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
 import { Form } from "react-bootstrap";
-import  { heroImage } from "../assets/hero-image.jpeg";
+import heroImage from "../assets/hero-image.jpeg";
 
 function Signup(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -105,7 +105,7 @@ function Signup(props) {
         </Form.Group>
       </form>
       <div>
-    
+      <img src={heroImage} className='heroImage' alt='scissors and comb' />
       </div>
     </div>
    

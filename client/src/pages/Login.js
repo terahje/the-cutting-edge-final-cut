@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations"
 import Auth from "../utils/auth";
 import { Form } from "react-bootstrap";
+import heroImage from "../assets/hero-image.jpeg";
 
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' })
@@ -73,6 +74,9 @@ function Login(props) {
         </div>
         </Form.Group>
       </form>
+      <div>
+      <img src={heroImage} className='heroImage' alt='scissors and comb' />
+      </div>
     </div>
   );
 }
