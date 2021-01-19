@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
 import { idbPromise } from "../../utils/helpers";
 
-function styleItem(item) {
+function ProductItem(item) {
   const dispatch = useDispatch();
   const state = useSelector(state => state);
 
@@ -38,7 +38,7 @@ function styleItem(item) {
     } else {
       dispatch({
         type: ADD_TO_CART,
-        style: { ...item, purchaseQuantity: 1 }
+        product: { ...item, purchaseQuantity: 1 }
       });
       idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
     }
@@ -46,7 +46,7 @@ function styleItem(item) {
 
   return (
     <div className="card px-1 py-1">
-      <Link to={`/styles/${_id}`}>
+      <Link to={`/products/${_id}`}>
         <img
           alt={name}
           src={`/images/${image}`}
@@ -62,4 +62,4 @@ function styleItem(item) {
   );
 }
 
-export default styleItem;
+export default ProductItem;
