@@ -20,10 +20,13 @@ function Success() {
           idbPromise('cart', 'delete', item);
         });
       }
-        
-      setTimeout(() => {
-        window.location.assign('/');
-      }, 3000);
+        //send email button to stylist 
+
+
+
+      // setTimeout(() => {
+      //   window.location.assign('/');
+      // }, 3000);
     }
 
     saveOrder();
