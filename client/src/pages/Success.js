@@ -10,13 +10,13 @@ function Success() {
   useEffect(() => {
     async function saveOrder() {
       const cart = await idbPromise('cart', 'get');
-      const products = cart.map(item => item._id);
+      const styles = cart.map(item => item._id);
       
-      if (products.length) {
-        const { data } = await addOrder({ variables: { products } });
-        const productData = data.addOrder.products;
+      if (styles.length) {
+        const { data } = await addOrder({ variables: { styles } });
+        const styleData = data.addOrder.styles;
     
-        productData.forEach((item) => {
+        styleData.forEach((item) => {
           idbPromise('cart', 'delete', item);
         });
       }

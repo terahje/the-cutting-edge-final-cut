@@ -1,69 +1,69 @@
 import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { useDispatch, useSelector } from 'react-redux';
-import { UPDATE_PRODUCTS } from '../../utils/actions';
+import { UPDATE_styleS } from '../../utils/actions';
 import { idbPromise } from "../../utils/helpers";
-import ProductItem from "../ProductItem";
-import { QUERY_PRODUCTS } from "../../utils/queries";
+import styleItem from "../styleItem";
+import { QUERY_styleS } from "../../utils/queries";
 import spinner from "../../assets/spinner.gif"
 
-function ProductList() {
+function styleList() {
   const dispatch = useDispatch();
   const state = useSelector(state => state);
 
 const { currentCategory } = state;
 
-const { loading, data } = useQuery(QUERY_PRODUCTS);
+const { loading, data } = useQuery(QUERY_styleS);
 
 useEffect(() => {
   if(data) {
     dispatch({
-      type: UPDATE_PRODUCTS,
-      products: data.products
+      type: UPDATE_styleS,
+      styles: data.styles
     });
 
-    data.products.forEach((product) => {
-      idbPromise('products', 'put', product);
+    data.styles.forEach((style) => {
+      idbPromise('styles', 'put', style);
     });
     // add else if to check if `loading` is undefined in `useQuery()` Hook
   } else if (!loading) {
-    // since we're offline, get all of the data from the `products` store
-    idbPromise('products', 'get').then((products) => {
+    // since we're offline, get all of the data from the `styles` store
+    idbPromise('styles', 'get').then((styles) => {
       // use retrieved data to set global state for offline browsing
       dispatch({
-        type: UPDATE_PRODUCTS,
-        products: products
+        type: UPDATE_styleS,
+        styles: styles
       });
     });
   }
 }, [data, loading, dispatch]);
 
-function filterProducts() {
+function filterstyles() {
   if (!currentCategory) {
-    return state.products;
+    return state.styles;
   }
 
-  return state.products.filter(product => product.category._id === currentCategory);
+  return state.styles.filter(style => style.category._id === currentCategory);
 }
 
   return (
     <div className="my-2">
       <h2>Our Services:</h2>
-      {state.products.length ? (
+      {state.styles.length ? (
         <div className="flex-row">
-            {filterProducts().map(product => (
-                <ProductItem
-                  key= {product._id}
-                  _id={product._id}
-                  image={product.image}
-                  name={product.name}
-                  price={product.price}
-                  quantity={product.quantity}
+            {filterstyles().map(style => (
+                <styleItem
+                  key= {style._id}
+                  _id={style._id}
+                  image={style.image}
+                  name={style.name}
+                  price={style.price}
+                  quantity={style.quantity}
                 />
             ))}
         </div>
       ) : (
-        <h3>You haven't added any products yet!</h3>
+        <h3>You haven't added any styles yet!</h3>
       )}
       { loading ? 
       <img src={spinner} alt="loading" />: null}
@@ -71,4 +71,4 @@ function filterProducts() {
   );
 }
 
-export default ProductList;
+export default styleList;
