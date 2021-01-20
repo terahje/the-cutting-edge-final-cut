@@ -73,14 +73,18 @@ function Header() {
 			<Navbar
 				className='navbar navbar-expand-lg navbar-dark bg-primary'
 				collapseOnSelect>
-				<img src={logoImage} className='logo-image' alt='logo' />
-				<LinkContainer to='/'>
-					<Nav.Link>
-						<span role='img' aria-label='shopping bag'></span>
-						<Navbar.Brand> The Cutting Edge</Navbar.Brand>
-					</Nav.Link>
-				</LinkContainer>
-				<Nav>{showNavigation()}</Nav>
+				<Container>
+					{/* <span role='img' aria-label='shopping bag'></span> */}
+					<LinkContainer to='/'>
+						<Nav.Link>
+							<Navbar.Brand>
+								<img src={logoImage} className='logo-image' alt='logo' />
+								The Cutting Edge
+							</Navbar.Brand>
+						</Nav.Link>
+					</LinkContainer>
+					<Nav>{showNavigation()}</Nav>
+				</Container>
 			</Navbar>
 		</header>
 	);
