@@ -23,18 +23,12 @@ function Header() {
 								<li className='nav-item'>
 									<LinkContainer to='/orderHistory'>
 										<Nav.Link className='nav-link' to='/orderHistory'>
-										{/* <h1>
-											<FontAwesomeIcon icon={farCalendarAlt} />
-										</h1> */}
-										Appointments
+											Appointments
 										</Nav.Link>
 									</LinkContainer>
 								</li>
 								<li className='nav-item'>
-									<Nav.Link
-										className='nav-link'
-										href='/'
-										onClick={() => Auth.logout()}>
+									<Nav.Link href='/' onClick={() => Auth.logout()}>
 										Logout
 									</Nav.Link>
 								</li>
@@ -48,16 +42,12 @@ function Header() {
 				<header>
 					<Navbar className='navbar navbar-expand-lg navbar-dark bg-primary'>
 						<div className='navbar-collapse' id='navbarColor01'>
-							<ul className='navbar-nav mr-auto'>
+							<ul className='navbar-nav ml-auto'>
 								<li className='nav-item'>
-									<Link className='nav-link' to='/signup'>
-										Signup
-									</Link>
+									<Nav.Link to='/signup'>Signup</Nav.Link>
 								</li>
 								<li className='nav-item'>
-									<Link className='nav-link' to='/login'>
-										Login
-									</Link>
+									<Nav.Link to='/login'>Login</Nav.Link>
 								</li>
 							</ul>
 						</div>
@@ -71,10 +61,10 @@ function Header() {
 		<header className='flex-row'>
 			<Navbar className='navbar navbar-expand-lg navbar-dark bg-primary'>
 				<img src={logoImage} className='logo-image' alt='logo' />
-				<Link to='/'>
+				<Nav.Link to='/'>
 					<span role='img' aria-label='shopping bag'></span>
 					<Navbar.Brand> The Cutting Edge</Navbar.Brand>
-				</Link>
+				</Nav.Link>
 			</Navbar>
 			<nav>{showNavigation()}</nav>
 		</header>
