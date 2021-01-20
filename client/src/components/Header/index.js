@@ -4,10 +4,10 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import logoImage from "../../assets/logo.png";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
 
-// const cal = <FontAwesomeIcon icon= {faCalendarAlt} />
+// // const cal = <FontAwesomeIcon icon= {faCalendarAlt} />
 
 function Header() {
 	function showNavigation() {
