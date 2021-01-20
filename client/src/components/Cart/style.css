@@ -37,7 +37,7 @@
     right: 1%;
     font-size: 2rem;
     cursor: pointer;
-    background-color: rgba(253, 126, 20, .5);
+    background-color: rgba(253, 126, 20, .8);
     padding: .25rem;
     width: 50px;
     height: 50px;
@@ -50,6 +50,7 @@
   .cart img {
     width: 70px;
     margin-right: 1rem;
+  
   }
   
   .cart input {
@@ -58,6 +59,9 @@
     margin: 0 .5rem 1rem 0;
   }
   
+  #item-body {
+    background-color: rgba(89, 49, 150, .2);
+  }
   @media screen and (max-width: 768px) {
     .cart {
       position: relative;

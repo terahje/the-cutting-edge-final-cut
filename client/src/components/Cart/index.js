@@ -76,9 +76,9 @@ const Cart = () => {
     <div className="cart">
       <div className="card-header">
       <div className="close" onClick={toggleCart}>❌</div>
-            <h2 className="text-info">Shopping Bag</h2>
+            <h2 className="text-secondary">Shopping Bag</h2>
       </div>
-      <div className='card-body'>
+      <div id="item-body" className='card-body'>
             {cart.length ? (
                 <div>
                 {cart.map(item => (
@@ -88,7 +88,7 @@ const Cart = () => {
                     <strong>Total: ${calculateTotal()}</strong>
                     {
                     Auth.loggedIn() ?
-                    <button onClick={submitCheckout}>
+                    <button className="btn btn-warning" onClick={submitCheckout}>
                         Checkout
                     </button>
                         :
