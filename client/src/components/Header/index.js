@@ -1,32 +1,84 @@
 import React from "react";
+import Auth from "../../utils/auth";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
+import logoImage from "../../assets/logo.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
 
-const Header = () => {
+// const cal = <FontAwesomeIcon icon= {faCalendarAlt} />
+
+function Header() {
+	function showNavigation() {
+		if (Auth.loggedIn()) {
+			return (
+				<header>
+					<Navbar
+						className='navbar navbar-expand-lg navbar-dark bg-primary'
+						collapseOnSelect>
+						<Container id='navbarColor01'>
+							<Navbar.Toggle aria-controls='basic-navbar-nav' />
+							<ul className='navbar-nav mr-auto'>
+								<li className='nav-item'>
+									<LinkContainer to='/orderHistory'>
+										<Nav.Link className='nav-link' to='/orderHistory'>
+										{/* <h1>
+											<FontAwesomeIcon icon={farCalendarAlt} />
+										</h1> */}
+										Appointments
+										</Nav.Link>
+									</LinkContainer>
+								</li>
+								<li className='nav-item'>
+									<Nav.Link
+										className='nav-link'
+										href='/'
+										onClick={() => Auth.logout()}>
+										Logout
+									</Nav.Link>
+								</li>
+							</ul>
+						</Container>
+					</Navbar>
+				</header>
+			);
+		} else {
+			return (
+				<header>
+					<Navbar className='navbar navbar-expand-lg navbar-dark bg-primary'>
+						<div className='navbar-collapse' id='navbarColor01'>
+							<ul className='navbar-nav mr-auto'>
+								<li className='nav-item'>
+									<Link className='nav-link' to='/signup'>
+										Signup
+									</Link>
+								</li>
+								<li className='nav-item'>
+									<Link className='nav-link' to='/login'>
+										Login
+									</Link>
+								</li>
+							</ul>
+						</div>
+					</Navbar>
+				</header>
+			);
+		}
+	}
+
 	return (
-		<header>
-			<Navbar
-				className='navbar navbar-expand-lg navbar-dark bg-primary'
-				collapseOnSelect>
-				<Container>
-					<Navbar.Brand href='/'>The Cutting Edge</Navbar.Brand>
-					<Navbar.Toggle aria-controls='basic-navbar-nav' />
-					<Navbar.Collapse id='basic-navbar-nav'>
-						<Nav className='ml-auto'>
-							<Nav.Link href='/appt'>
-								<i className='far fa-calendar-alt'> </i> Appointments
-							</Nav.Link>
-							<Nav.Link href='/service'>
-								<i className='fas fa-cut'> </i> Services
-							</Nav.Link>
-							<Nav.Link href='/login'>
-								<i className='fas fa-user'> </i> Sign In
-							</Nav.Link>
-						</Nav>
-					</Navbar.Collapse>
-				</Container>
+		<header className='flex-row'>
+			<Navbar className='navbar navbar-expand-lg navbar-dark bg-primary'>
+				<img src={logoImage} className='logo-image' alt='logo' />
+				<Link to='/'>
+					<span role='img' aria-label='shopping bag'></span>
+					<Navbar.Brand> The Cutting Edge</Navbar.Brand>
+				</Link>
 			</Navbar>
+			<nav>{showNavigation()}</nav>
 		</header>
 	);
-};
+}
 
 export default Header;
