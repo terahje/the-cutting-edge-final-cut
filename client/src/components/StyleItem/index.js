@@ -39,16 +39,19 @@ function StyleItem(item) {
 	};
 
 	return (
-		<Card className='card border-secondary  mb-3'>
+		<Card className='card border-warning  mb-3 ml-1'>
 			<Link to={`/styles/${_id}`}>
 				<img className='style-image' alt={name} src={`/images/${image}`} />
-				<div className='card-header'>{name}</div>
+				<Card.Header>{name}</Card.Header>
 			</Link>
-			<div>
-				<div>{quantity} Style is avaliable</div>
-				<span>${price}</span>
-			</div>
-			<button onClick={addToCart}>Add to cart</button>
+			<Card.Body>
+				<Card.Text>
+					<div>{quantity} Style is avaliable</div>
+					<span>${price}</span>
+				</Card.Text>
+
+				<button onClick={addToCart}>Add to cart</button>
+			</Card.Body>
 		</Card>
 	);
 }
