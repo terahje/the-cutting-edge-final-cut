@@ -4,6 +4,7 @@ import { Navbar, Nav, Container, Col, Row } from "react-bootstrap";
 
 import { LinkContainer } from "react-router-bootstrap";
 import logoImage from "../../assets/logo.png";
+import "./header.css";
 
 function Header() {
 	function showNavigation() {
@@ -89,7 +90,7 @@ function Header() {
 						<Col>
 							<LinkContainer to='/'>
 								<Nav.Link>
-									<Navbar.Brand>
+									<Navbar.Brand className='branding'>
 										<img src={logoImage} className='logo-image' alt='logo' />
 										The Cutting Edge
 									</Navbar.Brand>
