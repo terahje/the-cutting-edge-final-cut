@@ -1,7 +1,7 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+
 import { LinkContainer } from "react-router-bootstrap";
 import logoImage from "../../assets/logo.png";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -21,20 +21,16 @@ function Header() {
 							<Navbar.Toggle aria-controls='basic-navbar-nav' />
 							<Navbar.Collapse id='navbarColor01'>
 								<Nav className='ml-auto'>
-									<ul className='navbar-nav ml-auto'>
-										<li className='nav-item'>
-											<LinkContainer to='/orderHistory'>
-												<Nav.Link className='nav-link' to='/orderHistory'>
-													Appointments
-												</Nav.Link>
-											</LinkContainer>
-										</li>
-										<li className='nav-item'>
-											<Nav.Link href='/' onClick={() => Auth.logout()}>
-												Logout
-											</Nav.Link>
-										</li>
-									</ul>
+									<LinkContainer to='/orderHistory'>
+										<Nav.Link>
+											<i className='far fa-calendar-alt'></i>
+											Appointments
+										</Nav.Link>
+									</LinkContainer>
+									<Nav.Link href='/' onClick={() => Auth.logout()}>
+										<i className='fas fa-sign-out-alt'></i>
+										Logout
+									</Nav.Link>
 								</Nav>
 							</Navbar.Collapse>
 						</Container>
@@ -44,17 +40,28 @@ function Header() {
 		} else {
 			return (
 				<header>
-					<Navbar className='navbar navbar-expand-lg navbar-dark bg-primary'>
-						<div className='navbar-collapse' id='navbarColor01'>
-							<ul className='navbar-nav ml-auto'>
-								<li className='nav-item'>
-									<Nav.Link to='/signup'>Signup</Nav.Link>
-								</li>
-								<li className='nav-item'>
-									<Nav.Link to='/login'>Login</Nav.Link>
-								</li>
-							</ul>
-						</div>
+					<Navbar
+						className='navbar navbar-expand-lg navbar-dark bg-primary'
+						collapseOnSelect>
+						<Container>
+							<Navbar.Toggle aria-controls='basic-navbar-nav' />
+							<Navbar.Collapse id='navbarColor01'>
+								<Nav className='ml-auto'>
+									<LinkContainer to='/signup'>
+										<Nav.Link>
+											<i className='fas fas-user-plus'></i>
+											Signup
+										</Nav.Link>
+									</LinkContainer>
+									<LinkContainer to='/login'>
+										<Nav.Link to='/login'>
+											<i className='fas fa-sign-in-alt'></i>
+											Login
+										</Nav.Link>
+									</LinkContainer>
+								</Nav>
+							</Navbar.Collapse>
+						</Container>
 					</Navbar>
 				</header>
 			);
