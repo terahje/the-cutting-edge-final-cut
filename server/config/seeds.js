@@ -23,7 +23,7 @@ db.once("open", async () => {
 			name: "Cornrows",
 			description:
 				"2 braids in cornrows braided close to the scalp. This style is the most iconic cornrow style.",
-			image: "braids.jpg",
+			image: "cornrows.jpg",
 			category: categories[4]._id,
 			price: 100.0,
 		},
@@ -31,7 +31,7 @@ db.once("open", async () => {
 			name: "Crochet",
 			description:
 				"A special way of braiding that adds extensions to the hair.",
-			image: "braids.jpg",
+			image: "crochet.jpg",
 			category: categories[5]._id,
 			price: 100.0,
 		},
@@ -40,7 +40,7 @@ db.once("open", async () => {
 			category: categories[5]._id,
 			description:
 				"A special way of braiding that adds extensions to the hair.",
-			image: "braids.jpg",
+			image: "crochet.jpg",
 			price: 100.0,
 		},
 		{
@@ -72,7 +72,7 @@ db.once("open", async () => {
 			category: categories[6]._id,
 			description:
 				"In sodales, ipsum quis ultricies porttitor, tellus urna aliquam arcu, eget venenatis purus ligula ut nisi. Fusce ut felis dolor. Mauris justo ante, aliquet non tempus in, tempus ac lorem. Aliquam lacinia dolor eu sem eleifend ultrices. Etiam mattis metus metus. Sed ligula dui, placerat non turpis vitae, suscipit volutpat elit. Phasellus sagittis, diam elementum suscipit fringilla, libero mauris scelerisque ex, ac interdum diam erat non sapien.",
-			image: "braids.jpg",
+			image: "boxbraids.jpg",
 			price: 85.0,
 		},
 		{
@@ -88,7 +88,7 @@ db.once("open", async () => {
 			category: categories[1]._id,
 			description:
 				"Ut vulputate hendrerit nibh, a placerat elit cursus interdum.",
-			image: "cuts.jpg",
+			image: "flatiron.jpg",
 			price: 75.0,
 		},
 		{
