@@ -75,7 +75,9 @@ const Cart = () => {
   return (
     <div className="cart">
       <div className="card-header">
-      <div className="close" onClick={toggleCart}>❌</div>
+      <div className="close" onClick={toggleCart}><span
+      role="img"
+      aria-label="close">❌</span></div>
             <h2 className="text-secondary">Shopping Bag</h2>
       </div>
       <div id="item-body" className='card-body'>
