@@ -67,15 +67,18 @@ const Cart = () => {
         <div className="cart-closed" onClick={toggleCart}>
           <span
             role="img"
-            aria-label="trash">🧺</span>
+            aria-label="trash">🛍️</span>
         </div>
       );
     }
 
   return (
     <div className="cart">
-        <div className="close" onClick={toggleCart}>[close]</div>
-            <h2>Style Basket</h2>
+      <div className="card-header">
+      <div className="close" onClick={toggleCart}>❌</div>
+            <h2 className="text-info">Shopping Bag</h2>
+      </div>
+      <div className='card-body'>
             {cart.length ? (
                 <div>
                 {cart.map(item => (
@@ -93,7 +96,9 @@ const Cart = () => {
                     }
                 </div>
                 </div>
+                 
             ) : (
+              
                 <h4>
                 <span role="img" aria-label="shocked">
                 💇
@@ -101,6 +106,7 @@ const Cart = () => {
                 Your new hair style awaits you! Choose a style and we'll find you a stylist!
                 </h4>
             )}
+            </div>
             </div>
         );
 };
