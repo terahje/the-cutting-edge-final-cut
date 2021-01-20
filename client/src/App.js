@@ -3,14 +3,14 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
 
-import Home from "./Pages/Home";
-import Detail from "./Pages/Detail";
-import NoMatch from "./Pages/NoMatch";
-import Login from "./Pages/Login";
-import Signup from "./Pages/Signup";
-import Success from "./Pages/Success";
+import Home from "./pages/Home";
+import Detail from "./pages/Detail";
+import NoMatch from "./pages/NoMatch";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Success from "./pages/Success";
 import Header from "./components/Header";
-import OrderHistory from "./Pages/OrderHistory";
+import OrderHistory from "./pages/OrderHistory";
 
 // replaced {storeProvider } with following:
 import { Provider } from "react-redux";

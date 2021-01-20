@@ -76,8 +76,8 @@ function Header() {
 					<span role='img' aria-label='shopping bag'></span>
 					<Navbar.Brand> The Cutting Edge</Navbar.Brand>
 				</Nav.Link>
+				<nav>{showNavigation()}</nav>
 			</Navbar>
-			<nav>{showNavigation()}</nav>
 		</header>
 	);
 }
