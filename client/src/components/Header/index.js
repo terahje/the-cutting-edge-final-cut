@@ -69,14 +69,18 @@ function Header() {
 	}
 
 	return (
-		<header className='flex-row'>
-			<Navbar className='navbar navbar-expand-lg navbar-dark bg-primary'>
+		<header>
+			<Navbar
+				className='navbar navbar-expand-lg navbar-dark bg-primary'
+				collapseOnSelect>
 				<img src={logoImage} className='logo-image' alt='logo' />
-				<Nav.Link to='/'>
-					<span role='img' aria-label='shopping bag'></span>
-					<Navbar.Brand> The Cutting Edge</Navbar.Brand>
-				</Nav.Link>
-				<nav>{showNavigation()}</nav>
+				<LinkContainer to='/'>
+					<Nav.Link>
+						<span role='img' aria-label='shopping bag'></span>
+						<Navbar.Brand> The Cutting Edge</Navbar.Brand>
+					</Nav.Link>
+				</LinkContainer>
+				<Nav>{showNavigation()}</Nav>
 			</Navbar>
 		</header>
 	);
