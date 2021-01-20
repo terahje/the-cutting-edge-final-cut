@@ -17,22 +17,26 @@ function Header() {
 					<Navbar
 						className='navbar navbar-expand-lg navbar-dark bg-primary'
 						collapseOnSelect>
-						<Container id='navbarColor01'>
+						<Container>
 							<Navbar.Toggle aria-controls='basic-navbar-nav' />
-							<ul className='navbar-nav mr-auto'>
-								<li className='nav-item'>
-									<LinkContainer to='/orderHistory'>
-										<Nav.Link className='nav-link' to='/orderHistory'>
-											Appointments
-										</Nav.Link>
-									</LinkContainer>
-								</li>
-								<li className='nav-item'>
-									<Nav.Link href='/' onClick={() => Auth.logout()}>
-										Logout
-									</Nav.Link>
-								</li>
-							</ul>
+							<Navbar.Collapse id='navbarColor01'>
+								<Nav className='ml-auto'>
+									<ul className='navbar-nav ml-auto'>
+										<li className='nav-item'>
+											<LinkContainer to='/orderHistory'>
+												<Nav.Link className='nav-link' to='/orderHistory'>
+													Appointments
+												</Nav.Link>
+											</LinkContainer>
+										</li>
+										<li className='nav-item'>
+											<Nav.Link href='/' onClick={() => Auth.logout()}>
+												Logout
+											</Nav.Link>
+										</li>
+									</ul>
+								</Nav>
+							</Navbar.Collapse>
 						</Container>
 					</Navbar>
 				</header>
