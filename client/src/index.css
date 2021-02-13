@@ -34,6 +34,12 @@ h6 {
 .style-image {
   width: 75%;
 }
+
+.heroImage {
+  width: 100%;
+  height: 150px;
+  opacity: 50%;
+}
 p {
   font-size: 1.1rem;
   margin-top: 0;
@@ -170,6 +176,10 @@ input:focus {
   text-align: center;
 }
 
+.lg-card {
+  width: 75%;
+  text-align:left;
+}
 .error-text {
   color: var(--error);
 }

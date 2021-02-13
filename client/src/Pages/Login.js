@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations"
 import Auth from "../utils/auth";
-import { Form } from "react-bootstrap";
+import { Form, Card, Row, Col } from "react-bootstrap";
 import heroImage from "../assets/hero-image.jpeg";
 
 function Login(props) {
@@ -31,11 +31,18 @@ function Login(props) {
 
   return (
     <div className="container my-1">
+     <Row>
+       <Col>
+
       <Link to="/signup">
         ← Go to Signup
       </Link>
-
+     
+        <Card className='lg-card'>
+        <Card.Header>  
       <h2><strong>Login</strong></h2>
+        </Card.Header>
+        
       <form onSubmit={handleFormSubmit}>
       <Form.Group>
         <div className="flex-row space-between my-2">
@@ -77,6 +84,10 @@ function Login(props) {
       <div>
       <img src={heroImage} className='heroImage' alt='scissors and comb' />
       </div>
+ 
+      </Card>
+      </Col>
+     </Row>
     </div>
   );
 }
