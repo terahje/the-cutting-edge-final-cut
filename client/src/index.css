@@ -40,6 +40,19 @@ h6 {
   height: 150px;
   opacity: 50%;
 }
+
+.landingImage {
+  opacity: 55%;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  margin-top: 0 !important;
+  height: 560;
+  clear: both;
+  text-align: center;
+}
 p {
   font-size: 1.1rem;
   margin-top: 0;
