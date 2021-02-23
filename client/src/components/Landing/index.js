@@ -1,4 +1,6 @@
 import React from "react";
+import { Card } from "react-bootstrap";
+
 import landingImage from "../../assets/salon.jpg";
 var sectionLanding= {
   backgroundImage: `url(${landingImage})`
@@ -9,7 +11,12 @@ function Landing() {
     <div
       className='landingImage' style={sectionLanding}
     >
-      <h1>Welcome to the Cutting Edge!</h1>
+      <Card className='landingCard'>
+        <Card.Body>
+          <h1 className='landingTitle text-warning'>Welcome to the Cutting Edge!</h1>
+        </Card.Body>
+      </Card>
+      
      
   
 
