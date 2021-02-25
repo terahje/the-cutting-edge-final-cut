@@ -46,7 +46,7 @@ function StyleItem(item) {
 			</Link>
 			<Card.Body>
 				<Card.Text>
-					<div>{quantity} Style is avaliable</div>
+					{quantity} Style is avaliable<br/>
 					<span>${price}</span>
 				</Card.Text>
 
