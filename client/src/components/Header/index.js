@@ -2,9 +2,13 @@ import React from "react";
 import Auth from "../../utils/auth";
 import { Navbar, Nav, Container, Col, Row } from "react-bootstrap";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { LinkContainer } from "react-router-bootstrap";
 import logoImage from "../../assets/logo.png";
 import "./header.css";
+
+
 
 function Header() {
 	function showNavigation() {
@@ -54,8 +58,9 @@ function Header() {
 										<Col>
 											<LinkContainer to='/signup'>
 												<Nav.Link>
-													<i className='fas fa-user-plus'></i>
+												<FontAwesomeIcon icon={faPencilAlt} />
 													Signup
+													
 												</Nav.Link>
 											</LinkContainer>
 										</Col>
