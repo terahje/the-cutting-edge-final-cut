@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
-function StyleItem(item) {
+function ProductItem(item) {
 	const dispatch = useDispatch();
 	const state = useSelector((state) => state);
 
@@ -32,7 +32,7 @@ function StyleItem(item) {
 		} else {
 			dispatch({
 				type: ADD_TO_CART,
-				style: { ...item, purchaseQuantity: 1 },
+				product: { ...item, purchaseQuantity: 1 },
 			});
 			idbPromise("cart", "put", { ...item, purchaseQuantity: 1 });
 		}
@@ -40,13 +40,13 @@ function StyleItem(item) {
 
 	return (
 		<Card className='card border-warning  mb-3 ml-1'>
-			<Link to={`/styles/${_id}`}>
+			<Link to={`/products/${_id}`}>
 				<img className='style-image' alt={name} src={`/images/${image}`} />
 				<Card.Header>{name}</Card.Header>
 			</Link>
 			<Card.Body>
 				<Card.Text>
-					{quantity} Style is avaliable<br/>
+					Style is avaliable<br/>
 					<span>${price}</span>
 				</Card.Text>
 
@@ -56,4 +56,4 @@ function StyleItem(item) {
 	);
 }
 
-export default StyleItem;
+export default ProductItem;
