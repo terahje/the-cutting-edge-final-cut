@@ -1,13 +1,10 @@
 import React from "react";
 import Auth from "../../utils/auth";
-import { Navbar, Nav, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Navbar, Nav, Container, Col, Row } from "react-bootstrap";
+
 import { LinkContainer } from "react-router-bootstrap";
 import logoImage from "../../assets/logo.png";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
-
-// // const cal = <FontAwesomeIcon icon= {faCalendarAlt} />
+import "./header.css";
 
 function Header() {
 	function showNavigation() {
@@ -17,28 +14,28 @@ function Header() {
 					<Navbar
 						className='navbar navbar-expand-lg navbar-dark bg-primary'
 						collapseOnSelect>
-						<Container id='navbarColor01'>
-							<Navbar.Toggle aria-controls='basic-navbar-nav' />
-							<ul className='navbar-nav mr-auto'>
-								<li className='nav-item'>
-									<LinkContainer to='/orderHistory'>
-										<Nav.Link className='nav-link' to='/orderHistory'>
-										{/* <h1>
-											<FontAwesomeIcon icon={farCalendarAlt} />
-										</h1> */}
-										Appointments
-										</Nav.Link>
-									</LinkContainer>
-								</li>
-								<li className='nav-item'>
-									<Nav.Link
-										className='nav-link'
-										href='/'
-										onClick={() => Auth.logout()}>
-										Logout
-									</Nav.Link>
-								</li>
-							</ul>
+						<Container>
+							<Row>
+								<Navbar.Toggle aria-controls='basic-navbar-nav' />
+								<Navbar.Collapse id='navbarColor01'>
+									<Nav className='ml-auto'>
+										<Col>
+											<LinkContainer to='/orderHistory'>
+												<Nav.Link>
+													<i className='far fa-calendar-alt'></i>
+													Appointments
+												</Nav.Link>
+											</LinkContainer>
+										</Col>
+										<Col>
+											<Nav.Link href='/' onClick={() => Auth.logout()}>
+												<i className='fas fa-sign-out-alt'></i>
+												Logout
+											</Nav.Link>
+										</Col>
+									</Nav>
+								</Navbar.Collapse>
+							</Row>
 						</Container>
 					</Navbar>
 				</header>
@@ -46,21 +43,36 @@ function Header() {
 		} else {
 			return (
 				<header>
-					<Navbar className='navbar navbar-expand-lg navbar-dark bg-primary'>
-						<div className='navbar-collapse' id='navbarColor01'>
-							<ul className='navbar-nav mr-auto'>
-								<li className='nav-item'>
-									<Link className='nav-link' to='/signup'>
-										Signup
-									</Link>
-								</li>
-								<li className='nav-item'>
-									<Link className='nav-link' to='/login'>
-										Login
-									</Link>
-								</li>
-							</ul>
-						</div>
+					<Navbar
+						className='navbar navbar-expand-lg navbar-dark bg-primary'
+						collapseOnSelect>
+						<Container>
+							<Row>
+								<Navbar.Toggle aria-controls='basic-navbar-nav' />
+								<Navbar.Collapse id='navbarColor01'>
+									<Nav className='ml-auto'>
+										<Col>
+											<LinkContainer to='/signup'>
+												<Nav.Link>
+													<i className='fas fa-user-plus'></i>
+													Signup
+												</Nav.Link>
+											</LinkContainer>
+										</Col>
+										<Col>
+											<LinkContainer to='/login'>
+												<Nav.Link to='/login'>
+													<span>
+														<i className='fas fa-sign-in-alt'></i>
+													</span>
+													Login
+												</Nav.Link>
+											</LinkContainer>
+										</Col>
+									</Nav>
+								</Navbar.Collapse>
+							</Row>
+						</Container>
 					</Navbar>
 				</header>
 			);
@@ -68,15 +80,29 @@ function Header() {
 	}
 
 	return (
-		<header className='flex-row'>
-			<Navbar className='navbar navbar-expand-lg navbar-dark bg-primary'>
-				<img src={logoImage} className='logo-image' alt='logo' />
-				<Link to='/'>
-					<span role='img' aria-label='shopping bag'></span>
-					<Navbar.Brand> The Cutting Edge</Navbar.Brand>
-				</Link>
+		<header>
+			<Navbar
+				className='navbar navbar-expand-lg navbar-dark bg-primary'
+				collapseOnSelect>
+				<Container fluid>
+					<Row>
+						{/* <span role='img' aria-label='shopping bag'></span> */}
+						<Col>
+							<LinkContainer to='/'>
+								<Nav.Link>
+									<Navbar.Brand className='branding'>
+										<img src={logoImage} className='logo-image' alt='logo' />
+										The Cutting Edge
+									</Navbar.Brand>
+								</Nav.Link>
+							</LinkContainer>
+						</Col>
+						<Col>
+							<Nav>{showNavigation()}</Nav>
+						</Col>
+					</Row>
+				</Container>
 			</Navbar>
-			<nav>{showNavigation()}</nav>
 		</header>
 	);
 }
