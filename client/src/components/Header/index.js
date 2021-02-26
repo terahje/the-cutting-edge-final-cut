@@ -57,13 +57,20 @@ function Header() {
 									<Nav className='ml-auto'>
 										<Col>
 											<LinkContainer to='/signup'>
-												<Nav.Link>
+											<Nav.Link>
+												<div className = 'row'>
+												<div className='col-8'>
+												Signup
+												</div>
+												<div className='col-1 float-right'>
+												<FontAwesomeIcon icon={faPencilAlt} />
+												</div>
+												</div>
 												
-												<FontAwesomeIcon icon={faPencilAlt} > </FontAwesomeIcon>
-													
-													
-												</Nav.Link>
+											</Nav.Link>
+											
 											</LinkContainer>
+											
 										</Col>
 										<Col>
 											<LinkContainer to='/login'>
