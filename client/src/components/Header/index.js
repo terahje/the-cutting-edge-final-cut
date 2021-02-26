@@ -58,8 +58,9 @@ function Header() {
 										<Col>
 											<LinkContainer to='/signup'>
 												<Nav.Link>
-												<FontAwesomeIcon icon={faPencilAlt} />
-													Signup
+												
+												<FontAwesomeIcon icon={faPencilAlt} > </FontAwesomeIcon>
+													
 													
 												</Nav.Link>
 											</LinkContainer>
