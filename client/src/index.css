@@ -27,10 +27,6 @@ h6 {
   font-family: sans-serif;
 }
 
-.logo-image {
-  width: 5%;
-}
-
 .style-image {
   width: 75%;
 }
@@ -49,14 +45,14 @@ a:hover {
   text-decoration: underline;
 }
 
-header {
+/* header {
   background: var(--primary);
   padding-left: 1em;
 }
 
 header a {
   color: var(--light);
-}
+} */
 
 button {
   font-size: 1rem;
@@ -71,12 +67,12 @@ button {
 }
 
 button:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 button[disabled] {
   cursor: default;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 img {
@@ -102,7 +98,7 @@ input {
 
 input:focus {
   border: 1px solid var(--secondary);
-  box-shadow: 0 0 .25rem rgba(0, 0, 0, .5);
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5);
 }
 
 .container {

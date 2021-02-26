@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { ApolloProvider } from "@apollo/react-hooks";
-import ApolloClient from "apollo-boost";
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from 'apollo-boost';
+
 
 import Home from "./Pages/Home";
 import Detail from "./Pages/Detail";
@@ -41,7 +42,7 @@ function App() {
 							<Route exact path='/login' component={Login} />
 							<Route exact path='/signup' component={Signup} />
 							<Route exact path='/orderHistory' component={OrderHistory} />
-							<Route exact path='/styles/:id' component={Detail} />
+							<Route exact path='/products/:id' component={Detail} />
 							<Route exact path='/success' component={Success} />
 							<Route component={NoMatch} />
 						</Switch>
