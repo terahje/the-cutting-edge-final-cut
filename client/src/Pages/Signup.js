@@ -39,26 +39,25 @@ function Signup(props) {
   };
 
   return (
-    <div className="container my-1">
+    <div className="container-flex">
       <Row>
         <Col lg={true}>
       <Link to="/login">
         ← Go to Login
       </Link>
       
-      
-      
       <Card className='lg-card'>
-        <Card.Header>
+        <Card.Img
+        variant="top"
+        src={heroImage} className="landingImage" alt="scissors and combs" />
+        <Card.ImgOverlay >
         <h2><strong>Signup</strong></h2>
-        </Card.Header>
-          <Card.Img 
-        src={heroImage} className='heroImage' alt='scissors and comb' 
-        />
+        
+          
           <Card.Body>
         <form onSubmit={handleFormSubmit}>
-        <Form.Group>
-        <div className="flex-row space-between my-2">
+        <Form.Group >
+        <div className="flex-row space-between my-2 'text-center">
            <div className="error">{error}</div>
         </div>
         
@@ -117,11 +116,8 @@ function Signup(props) {
         </Form.Group>
       </form>
       </Card.Body>
+      </Card.ImgOverlay>
       </Card>
-      
-      <div>
-     
-      </div>
       </Col>
       </Row>
     </div>

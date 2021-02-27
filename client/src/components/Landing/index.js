@@ -2,9 +2,7 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import landingImage from "../../assets/salon.jpg";
-var sectionLanding= {
-  backgroundImage: `url(${landingImage})`
-}
+
 
 function Landing() {
   return (

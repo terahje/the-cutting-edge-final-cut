@@ -2,12 +2,9 @@ import React from "react";
 import Auth from "../../utils/auth";
 import { Navbar, Nav, Container, Col, Row } from "react-bootstrap";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { LinkContainer } from "react-router-bootstrap";
 import logoImage from "../../assets/logo.png";
 import "./header.css";
-
 
 
 function Header() {
@@ -58,19 +55,9 @@ function Header() {
 										<Col>
 											<LinkContainer to='/signup'>
 											<Nav.Link>
-												<div className = 'row'>
-												<div className='col-8'>
 												Signup
-												</div>
-												<div className='col-1 float-right'>
-												<FontAwesomeIcon icon={faPencilAlt} />
-												</div>
-												</div>
-												
 											</Nav.Link>
-											
 											</LinkContainer>
-											
 										</Col>
 										<Col>
 											<LinkContainer to='/login'>
