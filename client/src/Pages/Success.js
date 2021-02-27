@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useMutation } from '@apollo/react-hooks';
-import { Card, Button, Row, Col } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import Jumbotron from "../components/Jumbotron";
 import { ADD_ORDER } from "../utils/mutations";
 import { idbPromise } from "../utils/helpers";
