@@ -90,6 +90,8 @@ function Detail() {
           <Link to="/">
             ← Back to Our Services
           </Link>
+          <div className="left-single-page row">
+            <div className="col-8" style={{ background: 'rgba(219, 219, 219, 0.5)'}}>
 
           <h2>{currentProduct.name}</h2>
 
@@ -115,7 +117,24 @@ function Detail() {
           <img
             src={`/images/${currentProduct.image}`}
             alt={currentProduct.name}
+            style={{maxHeight:'500px'}}
           />
+          </div>
+            <div className="right-single-page col-4" style={{background: 'darkgrey'}}>
+              <h2 style={{color: '#fff', background: '#007bff', padding: '5px 5px 5px 5px'}}>Meet your Stylist!</h2>
+              <img
+                          src={require("../assets/stylist-image2.jpg")}
+                          alt="model with flowers in hair"
+                          className= "flowergirl-img"
+                      />
+              <h2 style={{color: '#fff', background: '#007bff', padding: '5px'}}>Glady's Hair Salon</h2>
+              <p>With more than 10 years experience, Glady's Hair Salon has been a staple in the Tucson Community.  
+                From braids and locs to cuts and perms.  Book your appointment with us today!</p>
+
+            </div>
+
+        </div>
+
         </div>
       ) : null}
       {

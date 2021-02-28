@@ -43,10 +43,7 @@ const CategoryMenu = () => {
 	};
 
 	return (
-		<div className=''>
-			<h3 className='mb-3 mt-2'>
-				<strong>Style Categories:</strong>
-			</h3>
+		<div className='navHeader'>
 			{categories.map((item) => (
 				<button
 					className='btn btn-outline-danger mb-2 ml-1'

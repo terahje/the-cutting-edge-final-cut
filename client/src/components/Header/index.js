@@ -1,7 +1,7 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import { Navbar, Nav, Container, Col, Row } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import logoImage from "../../assets/logo.png";
 import "./header.css";
@@ -89,12 +89,12 @@ function Header() {
 						{/* <span role='img' aria-label='shopping bag'></span> */}
 						<Col>
 							<LinkContainer to='/'>
-								<Nav.Link>
+								<Link to="/">
 									<Navbar.Brand className='branding'>
 										<img src={logoImage} className='logo-image' alt='logo' />
 										The Cutting Edge
 									</Navbar.Brand>
-								</Nav.Link>
+								</Link>
 							</LinkContainer>
 						</Col>
 						<Col>

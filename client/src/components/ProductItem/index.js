@@ -10,7 +10,7 @@ function ProductItem(item) {
 	const dispatch = useDispatch();
 	const state = useSelector((state) => state);
 
-	const { image, name, _id, price, quantity } = item;
+	const { image, name, _id, price } = item;
 
 	const { cart } = state;
 
@@ -50,7 +50,7 @@ function ProductItem(item) {
 					<span>${price}</span>
 				</Card.Text>
 
-				<button onClick={addToCart}>Add to cart</button>
+				<button onClick={addToCart}>Add to Bag</button>
 			</Card.Body>
 		</Card>
 	);

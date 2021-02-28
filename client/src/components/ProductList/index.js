@@ -48,9 +48,11 @@ function filterProcucts() {
 
   return (
     <div className="my-2">
-      <h3 className="bg-secondary text-light "><strong>Choose Your Style:</strong></h3>
+      <h3 className="bg-secondary text-light " style={{paddingLeft: '10px'}}><strong>Choose Your Style:</strong></h3>
+          <div className="row">
+
       {state.products.length ? (
-        <div className="flex-row">
+        <div className="flex-row col" style={{justifyContent:'center'}}>
             {filterProcucts().map(product => (
                 <ProcuctItem 
                   key= {product._id}
@@ -67,6 +69,7 @@ function filterProcucts() {
       )}
       { loading ? 
       <img src={spinner} alt="loading" />: null}
+          </div>
     </div>
   );
 }
