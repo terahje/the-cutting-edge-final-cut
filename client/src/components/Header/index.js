@@ -87,8 +87,6 @@ function Header() {
 								</Link>
 							</LinkContainer>
 						</Col>
-					</Row>
-					<Row>
 						<Col className='showNav'>
 						<Nav> {showNavigation()}</Nav>
 						</Col>
