@@ -1,10 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { ApolloProvider } from '@apollo/react-hooks';
-import ApolloClient from 'apollo-boost';
 
+import { ApolloProvider } from "@apollo/react-hooks";
+import ApolloClient from "apollo-boost";
 
 import Home from "./Pages/Home";
+import LandingPage from "./Pages/LandingPage";
 import Detail from "./Pages/Detail";
 import NoMatch from "./Pages/NoMatch";
 import Login from "./Pages/Login";
@@ -12,6 +13,7 @@ import Signup from "./Pages/Signup";
 import Success from "./Pages/Success";
 import Header from "./components/Header";
 import OrderHistory from "./Pages/OrderHistory";
+import ProtectedRoute from "./components/ProtectedRoute"
 
 // replaced {storeProvider } with following:
 import { Provider } from "react-redux";
@@ -38,12 +40,14 @@ function App() {
 					<Provider store={store}>
 						<Header />
 						<Switch>
-							<Route exact path='/' component={Home} />
+							<Route exact path='/landing' component={LandingPage} />
 							<Route exact path='/login' component={Login} />
 							<Route exact path='/signup' component={Signup} />
-							<Route exact path='/orderHistory' component={OrderHistory} />
-							<Route exact path='/products/:id' component={Detail} />
-							<Route exact path='/success' component={Success} />
+							
+							<ProtectedRoute exact={true} path='/' component={Home} />
+							<ProtectedRoute exact={true} path='/orderHistory' component={OrderHistory} />
+							<ProtectedRoute exact={true} path='/products/:id' component={Detail} />
+							<ProtectedRoute exact={true} path='/success' component={Success} />
 							<Route component={NoMatch} />
 						</Switch>
 					</Provider>
