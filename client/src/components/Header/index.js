@@ -54,8 +54,10 @@ function Header() {
 										<Col>
 											<LinkContainer to='/signup'>
 												<Nav.Link>
+												<span>
 													<i className='fas fa-user-plus'></i>
 													Signup
+												</span>
 												</Nav.Link>
 											</LinkContainer>
 										</Col>
