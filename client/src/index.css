@@ -29,6 +29,19 @@ h6 {
   font-family: sans-serif;
 }
 
+.navbar-nav {
+  display: flex;
+  float: right;
+  margin-top: 10px;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.showNav {
+  padding: 25px 5px 0px 0px;
+}
+
 .landingTitle {
   font-family: "Yatra One", cursive;
   font-size: 3em;

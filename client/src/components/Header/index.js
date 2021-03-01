@@ -19,20 +19,16 @@ function Header() {
 								<Navbar.Toggle aria-controls='basic-navbar-nav' />
 								<Navbar.Collapse id='navbarColor01'>
 									<Nav className='ml-auto'>
-										<Col>
 											<LinkContainer to='/orderHistory'>
 												<Nav.Link>
-													<i className='far fa-calendar-alt'></i>
-													Appointments
+													<i className='far fa-calendar-alt'></i> 
+													 Appointments
 												</Nav.Link>
 											</LinkContainer>
-										</Col>
-										<Col>
 											<Nav.Link href='/' onClick={() => Auth.logout()}>
-												<i className='fas fa-sign-out-alt'></i>
-												Logout
+												<i className='fas fa-sign-out-alt'></i> 
+												 Logout
 											</Nav.Link>
-										</Col>
 									</Nav>
 								</Navbar.Collapse>
 							</Row>
@@ -51,26 +47,18 @@ function Header() {
 								<Navbar.Toggle aria-controls='basic-navbar-nav' />
 								<Navbar.Collapse id='navbarColor01'>
 									<Nav className='ml-auto'>
-										<Col>
 											<LinkContainer to='/signup'>
-												<Nav.Link>
-												<span>
-													<i className='fas fa-user-plus'></i>
-													Signup
-												</span>
+												<Nav.Link to='/signup'>
+													<i className='fas fa-user-plus'></i> 
+													 Signup
 												</Nav.Link>
 											</LinkContainer>
-										</Col>
-										<Col>
 											<LinkContainer to='/login'>
 												<Nav.Link to='/login'>
-													<span>
-														<i className='fas fa-sign-in-alt'></i>
-													</span>
-													Login
+														<i className='fas fa-sign-in-alt'></i> 
+													 Login
 												</Nav.Link>
 											</LinkContainer>
-										</Col>
 									</Nav>
 								</Navbar.Collapse>
 							</Row>
@@ -99,8 +87,10 @@ function Header() {
 								</Link>
 							</LinkContainer>
 						</Col>
-						<Col>
-							<Nav>{showNavigation()}</Nav>
+					</Row>
+					<Row>
+						<Col className='showNav'>
+						<Nav> {showNavigation()}</Nav>
 						</Col>
 					</Row>
 				</Container>
