@@ -25,7 +25,7 @@
 
 # :incoming_envelope: [List of Authors](listauthors)
 
-> [Terahje Gratkowski](http://github.com/terahje) <br> > [Jennifer Schlierman](https://github.com/jd9913) <br> > [Allison Smith](https://github.com/aksmith5239) <br>
+> [Terahje Gratkowski](http://github.com/terahje) <br> [Jennifer Schlierman](https://github.com/jd9913) <br> [Allison Smith](https://github.com/aksmith5239) <br>
 
 # :incoming_envelope: [Contribution Guidelines](contribute)
 
