@@ -2,6 +2,8 @@
 
 # :house: The Cutting Edge-final cut <br>
 
+[Link to Deployed App](https://the-cutting-edge-final-cut800.herokuapp.com/)
+
 ## Description
 
 > A scheduling system for hair stylists that allows a user to choose a style, book the style and send a message for a stylist to accept and book the appointment. <br> > <img src="cuttingEdgeFinalCut.gif" height="300px" width="500px" />
