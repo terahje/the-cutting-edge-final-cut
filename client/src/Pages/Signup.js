@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useMutation } from '@apollo/react-hooks';
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
-import { Form } from "react-bootstrap";
+import { Form, Card, Row, Col } from "react-bootstrap";
 import heroImage from "../assets/hero-image.jpeg";
 
 function Signup(props) {
@@ -39,15 +39,25 @@ function Signup(props) {
   };
 
   return (
-    <div className="container my-1">
+    <div className="container-flex">
+      <Row>
+        <Col lg={true}>
       <Link to="/login">
         ← Go to Login
       </Link>
       
-      <h2><strong>Signup</strong></h2>
-      <form onSubmit={handleFormSubmit}>
-        <Form.Group>
-        <div className="flex-row space-between my-2">
+      <Card className='lg-card'>
+        <Card.Img
+        variant="top"
+        src={heroImage} className="landingImage" alt="scissors and combs" />
+        <Card.ImgOverlay >
+        <h2><strong>Signup</strong></h2>
+        
+          
+          <Card.Body>
+        <form onSubmit={handleFormSubmit}>
+        <Form.Group >
+        <div className="flex-row space-between my-2 'text-center">
            <div className="error">{error}</div>
         </div>
         
@@ -98,15 +108,18 @@ function Signup(props) {
         </div>
         <Form.Group>
         <div className="flex-row flex-end">
+        
           <button type="submit">
             Submit
           </button>
         </div>
         </Form.Group>
       </form>
-      <div>
-      <img src={heroImage} className='heroImage' alt='scissors and comb' />
-      </div>
+      </Card.Body>
+      </Card.ImgOverlay>
+      </Card>
+      </Col>
+      </Row>
     </div>
    
   );
