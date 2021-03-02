@@ -93,7 +93,7 @@ function Detail() {
           <div className="left-single-page row">
             <div className="col-8" style={{ background: 'rgba(219, 219, 219, 0.5)'}}>
 
-          <h2 style={{background: 'grey'}}>{currentProduct.name}</h2>
+          <h2 style={{background: 'lightGrey'}}>{currentProduct.name}</h2>
 
           <p>
             {currentProduct.description}
