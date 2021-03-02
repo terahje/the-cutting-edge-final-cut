@@ -4,13 +4,13 @@
 
 ## Description
 
-> A scheduling system for hair stylists that allows a user to choose a style, book the style and send a message for a stylist to accept and book the appointment. <br>
-> <img src="cuttingEdgeFinalCut.gif" height="300px" width="500px" />
+> A scheduling system for hair stylists that allows a user to choose a style, book the style and send a message for a stylist to accept and book the appointment. <br> > <img src="cuttingEdgeFinalCut.gif" height="300px" width="500px" />
 
 ## Table of Contents
 
 [Installation](#install)<br>
 [Usage Information](#usage)<br>
+[List of Authors](#listauthors)<br>
 [Contribution Guidelines](#contribute)<br>
 [Testing Instructions](#test)<br>
 [Questions](#quest)<br>
@@ -22,6 +22,12 @@
 # :computer: [Usage Information](usage)
 
 > Use to schedule and order hair style appointments
+
+# :incoming_envelope: [List of Authors](listauthors)
+
+> [Terahje Gratkowski](http://github.com/terahje)
+> [Jennifer Schlierman](https://github.com/jd9913)
+> [Allison Smith](https://github.com/aksmith5239)
 
 # :incoming_envelope: [Contribution Guidelines](contribute)
 

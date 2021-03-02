@@ -40,9 +40,9 @@ function App() {
 					<Provider store={store}>
 						<Header />
 						<Switch>
-							<Route exact path='/landing' component={LandingPage} />
-							<Route path='/login' component={Login} />
-							<Route path='/signup' component={Signup} />
+							<Route exact={true} path='/landing' component={LandingPage} />
+							<Route exact={true} path='/login' component={Login} />
+							<Route exact={true} path='/signup' component={Signup} />
 							
 							<ProtectedRoute exact={true} path='/' component={Home} />
 							<ProtectedRoute exact={true} path='/orderHistory' component={OrderHistory} />
