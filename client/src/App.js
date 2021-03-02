@@ -41,8 +41,8 @@ function App() {
 						<Header />
 						<Switch>
 							<Route exact path='/landing' component={LandingPage} />
-							<Route exact path='/login' component={Login} />
-							<Route exact path='/signup' component={Signup} />
+							<Route path='/login' component={Login} />
+							<Route path='/signup' component={Signup} />
 							
 							<ProtectedRoute exact={true} path='/' component={Home} />
 							<ProtectedRoute exact={true} path='/orderHistory' component={OrderHistory} />
