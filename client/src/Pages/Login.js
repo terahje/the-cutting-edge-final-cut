@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations"
 import Auth from "../utils/auth";
 import { Form, Card, Row, Col } from "react-bootstrap";
-import heroImage from "../assets/hero-image.jpg";
+
 
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' })
@@ -41,7 +41,7 @@ function Login(props) {
         <Card className='lg-card'>
         <Card.Img
         variant="top"
-        src={heroImage} className="landingImage" alt="scissors and combs" />
+         src={require("../assets/hero-image.jpg")} className='landingImage' alt='scissors and combs' />
          <Card.ImgOverlay>
         <h2><strong>Login</strong></h2>
        

@@ -49,7 +49,8 @@ function Signup(props) {
       <Card className='lg-card'>
         <Card.Img
         variant="top"
-        src={heroImage} className="landingImage" alt="scissors and combs" />
+        src={require("../assets/hero-image.jpg")} className='landingImage' alt='scissors and combs' 
+       />
         <Card.ImgOverlay >
         <h2><strong>Signup</strong></h2>
         

@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import landingImage from "../../assets/salon.jpg";
+
 
 
 function Landing() {
@@ -10,7 +10,7 @@ function Landing() {
       <Card className='landingCard'>
         <Card.Img
         variant="top"
-        src={landingImage} className='landingImage' alt='salon' 
+        src={require("../../assets/salon.jpg")} className='landingImage' alt='salon' 
         />
         <Card.ImgOverlay className='landingOverlay'>
           <Card.Title ><h1 className='landingTitle text-primary'>Welcome to the Cutting Edge</h1>
@@ -33,3 +33,4 @@ function Landing() {
 }
 
 export default Landing;
+
