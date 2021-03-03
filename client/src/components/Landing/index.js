@@ -1,11 +1,11 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import salon from '../../assets/salon.jpg'
+
 
 function Landing() {
   return (
-    <div className="landingBack container" style={{ backgroundImage: `url(${salon})`}}>
+    <div>
       <Card className='landingCard'>
         
        
@@ -18,10 +18,9 @@ function Landing() {
           <Button className='btn btn-outline-warning btn-lg'>Login</Button>
           </Link>
           </Card.Title>
-          {/* <Card.Img
+          <Card.Img
         variant="top"
         src={require("../../assets/salon.jpg")} className='heroImage' alt='salon' />
-        */}
       </Card>
       
      
