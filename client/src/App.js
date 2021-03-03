@@ -15,6 +15,7 @@ import Header from "./components/Header";
 import OrderHistory from "./Pages/OrderHistory";
 import ProtectedRoute from "./components/ProtectedRoute"
 
+
 // replaced {storeProvider } with following:
 import { Provider } from "react-redux";
 // Import the Redux store you created
