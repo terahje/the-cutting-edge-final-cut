@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 
 import Landing from "../components/Landing";
 
 const LandingPage = () => {
-
+  useState();
   return (
     <div className="container">
 
