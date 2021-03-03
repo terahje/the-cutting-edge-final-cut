@@ -1,10 +1,14 @@
 import React, { useEffect } from "react";
 import { useMutation } from '@apollo/react-hooks';
+import { Card, Button } from "react-bootstrap";
 import Jumbotron from "../components/Jumbotron";
 import { ADD_ORDER } from "../utils/mutations";
 import { idbPromise } from "../utils/helpers";
 import { Link } from "react-router-dom";
-import heroImage from "../assets/hero-image.jpg";
+import landingImage from "../assets/salon.jpg";
+
+
+
 
 function Success() {
   const [addOrder] = useMutation(ADD_ORDER);
@@ -33,23 +37,32 @@ function Success() {
       <Link to="/">
           ← Back to Our Style Gallery
         </Link>
-      <Jumbotron>
-        
-        <h1>Success!</h1>
-        <h2>
-          Thank you for your purchase!
-        </h2>
-        <h2>
-          Click the link below to submit your order to your stylist. Your new stylist will contact you with your appointment details. 
-          </h2>
-          <button type="button" className="btn btn-primary btn-lg btn-block"><a className="text-light" href="mailto:test@test.com">Click to Send to Stylist!</a></button>
-          <div>
-          <img src={heroImage} className='heroImage' alt='scissors and comb' />
-          </div>
+
+        <div>
+     <Jumbotron>   
+      <Card className='landingCard'>
+        <Card.Img
+        variant="top"
+        src={landingImage} className='landingImage' alt='salon' 
+        />
+        <Card.ImgOverlay className='landingOverlay'>
+          <Card.Title ><h1 className='landingTitle text-primary'>Success!</h1>
+          <h2 className='text-dark '><em>Thank you for your purchase!</em></h2>
+          <h2 className='text-dark '><em>Click the link below to submit your order to your stylist. Your new stylist will contact you with your appointment details.</em></h2>
           
-       
-      </Jumbotron>
+          <Button ><a className='btn btn-outline-warning btn-lg' href="mailto:test@test.com">Click to Send to Stylist!</a></Button>
+        
+          
+          </Card.Title>
+        </Card.ImgOverlay>
+      </Card>
+      </Jumbotron>  
+     
+  
+
     </div>
+
+   </div>
   );
 };
 
