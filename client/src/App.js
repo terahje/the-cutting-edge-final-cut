@@ -47,7 +47,7 @@ function App() {
 							<ProtectedRoute exact={true} path='/' component={Home} />
 							<ProtectedRoute exact={true} path='/orderHistory' component={OrderHistory} />
 							<Route exact path='/products/:id' component={Detail} />
-							<ProtectedRoute exact={true} path='/success' component={Success} />
+							<Route exactpath='/success' component={Success} />
 							<Route component={NoMatch} />
 						</Switch>
 					</Provider>
