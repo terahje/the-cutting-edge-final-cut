@@ -1,6 +1,7 @@
 {
   "name": "thecuttingedge",
   "version": "1.0.0",
+  "homepage": "/https://the-cutting-edge-final-cut800.herokuapp.com/landing",
   "engines": {
     "node": "v14.15.5",
     "npm": "7.5.6"
