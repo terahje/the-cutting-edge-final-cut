@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations"
 import Auth from "../utils/auth";
 import { Form, Card, Row, Col } from "react-bootstrap";
-
+import heroImage from "../assets/hero-image.jpg";
 
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' })

@@ -5,6 +5,10 @@ import Jumbotron from "../components/Jumbotron";
 import { ADD_ORDER } from "../utils/mutations";
 import { idbPromise } from "../utils/helpers";
 import { Link } from "react-router-dom";
+import landingImage from "../assets/salon.jpg";
+
+
+
 
 function Success() {
   const [addOrder] = useMutation(ADD_ORDER);
@@ -39,7 +43,7 @@ function Success() {
       <Card className='landingCard'>
         <Card.Img
         variant="top"
-        src={require("../assets/salon.jpg")} className='landingImage' alt='salon' 
+        style={{ backgroundImage: `url(${landingImage})`}} className='landingImage' alt='salon' 
         />
         <Card.ImgOverlay className='landingOverlay'>
           <Card.Title ><h1 className='landingTitle text-primary'>Success!</h1>
