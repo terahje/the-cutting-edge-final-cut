@@ -1,65 +1,60 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-    type Appt {
-        _id: ID!
-        title: String!
-        description: String!
-        category: String!
-        price: Float!
-        date: String!
-        time: String!
-        creator: User!
-    }
-    
-    type Booking {
-        _id: ID!
-       appointment: Appt!
-       user: User!
-       createdAt: String!
-       updatedAt: String!
+  type Category {
+    _id: ID
+    name: String
+  }
 
-    }
-    type User {
-        _id: ID!
-        email: String!
-        password: String
-        createdAppts: [Appt!]
-    }
+  type Style {
+    _id: ID
+    name: String
+    description: String
+    image: String
+    quantity: Int
+    price: Float
+    category: Category
+  }
 
-    type AuthData {
-        userId: ID!
-        token: String!
-        tokenExpiration: Int!
-      }
+  type Order {
+    _id: ID
+    purchaseDate: String
+    styles: [Style]
+  }
 
-    input ApptInput {
-        title: String!
-        description: String!
-        category: String!
-        price: Float!
-        date: String!
-        time: String!
-    } 
+  type User {
+    _id: ID
+    firstName: String
+    lastName: String
+    email: String
+    orders: [Order]
+  }
 
-    input UserInput {
-        email: String!
-        password: String!
-    }
+  type Checkout {
+    session: ID
+  }
 
-    type Query{
-        appt: [Appt!]!
-        bookings: [Booking!]!
-        login(email: String!, password: String!): AuthData!
-    }
+  type Auth {
+    token: ID
+    user: User
+  }
 
-    type Mutation {
-        createAppt(apptInput: ApptInput): Appt
-        createUser(userInput: UserInput): User
-        bookAppt(apptId: ID!): Booking!
-        cancelAppt(bookingId: ID!): Appt!
-    }
-    
-    `;
+  type Query {
+    categories: [Category]
+    styles(category: ID, name: String): [Style]
+    style(_id: ID!): Style
+    user: User
+    order(_id: ID!): Order
+    checkout(styles: [ID]!): Checkout
+  }
 
-    module.exports = typeDefs;
+  type Mutation {
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    addOrder(styles: [ID]!): Order
+    updateUser(firstName: String, lastName: String, email: String, password: String): User
+    updateStyle(_id: ID!, quantity: Int!): Style
+    login(email: String!, password: String!): Auth
+  }
+`;
+
+module.exports = typeDefs;
